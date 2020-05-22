@@ -1,0 +1,71 @@
+/*********************************************************
+
+
+ Page
+
+
+**********************************************************/
+/****************************************
+
+         Header
+
+*****************************************/
+.l-page-header {
+    background-color: rgba($c_main, 0.9);
+    padding: 3.3vw 2vw;
+    min-height: 80px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    color: $c_base;
+    @media #{map-get($max, md)} {
+        padding: 25px 6%;
+    }
+}
+
+.l-page-header__home {
+    display: block;
+    font-size: 1.3rem;
+    letter-spacing: 0;
+    position: relative;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0.9em;
+        border-top: 2px solid;
+        width: 0.7em;
+        right: 100%;
+        margin-right: 4px;
+    }
+    @media #{map-get($max, md)} {
+        font-size: 1rem;
+    }
+}
+.l-page-header__title {
+    color: $c_base;
+    @media #{map-get($max, md)} {
+    }
+}
+.l-page-header__title__en {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    display: block;
+    @media #{map-get($max, md)} {
+        font-size: 1.6rem;
+    }
+}
+/****************************************
+
+         Content
+
+*****************************************/
+.l-page-content {
+    padding-top: 7em;
+    padding-bottom: 7em;
+    @media #{map-get($max, md)} {
+        padding-top: 1.5em;
+        padding-bottom: 5em;
+    }
+}

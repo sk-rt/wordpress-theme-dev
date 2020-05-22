@@ -1,0 +1,133 @@
+/*********************************************************
+
+
+Form
+
+
+**********************************************************/
+
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='search'],
+textarea,
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+select {
+    font-family: inherit;
+}
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='search'],
+textarea {
+    margin: 0;
+    padding: 0.8em 1em;
+    max-width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    // outline: none;
+    border: none;
+    font-size: 1em;
+    font-weight: normal;
+    border: 1px solid $c_base;
+    background: $c_text;
+    color: $c_base;
+    vertical-align: middle;
+    box-sizing: border-box;
+    border-radius: 0px;
+}
+/****************************************
+
+         検索テキスト
+
+*****************************************/
+.c-form-search {
+    color: $c_main;
+    border-bottom: 3px solid;
+    position: relative;
+    input {
+        display: block;
+        background: none;
+        color: inherit;
+        width: 100%;
+        padding-left: 40px;
+        font-weight: 600;
+        &:focus {
+            outline: none;
+            box-shadow: 0px 0px 8px 1px rgba($c_main, 0.4);
+        }
+        @media #{map-get($max, md)} {
+            padding-left: 30px;
+        }
+    }
+    input::placeholder {
+        color: inherit;
+        opacity: 0.4;
+    }
+    input:-ms-input-placeholder {
+        color: inherit;
+        opacity: 0.4;
+    }
+    input::-ms-input-placeholder {
+        color: inherit;
+        opacity: 0.4;
+    }
+}
+.c-form-search__icon {
+    position: absolute;
+    left: 4px;
+    top: 0.6em;
+    width: 30px;
+    @media #{map-get($max, md)} {
+        top: 0.8em;
+        width: 24px;
+    }
+}
+/****************************************
+
+         チェックボックス
+
+*****************************************/
+.c-form-checkbox {
+    display: inline-block;
+    margin: 0 0.16em 0.5em 0;
+    input {
+        display: none;
+    }
+    svg {
+        display: block;
+    }
+}
+.c-form-checkbox__content {
+    color: $c_main;
+    font-weight: 600;
+    background-color: rgba($c_main, 0.2);
+    display: block;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0.3em 1.2em 0.3em 0.8em;
+    border-radius: 1.3em;
+    transition: background-color 0.3s;
+    @at-root input:checked + & {
+        color: $c_base;
+        background-color: rgba($c_main, 1);
+        .c-form-checkbox__icon {
+            opacity: 1;
+        }
+    }
+    @at-root input:focus + & {
+        box-shadow: 0px 0px 8px 1px rgba($c_main, 0.4);
+    }
+    @media #{map-get($max, md)} {
+        font-size: 0.9em;
+    }
+}
+.c-form-checkbox__icon {
+    opacity: 0.2;
+    width: 20px;
+    margin-right: 0.3em;
+}

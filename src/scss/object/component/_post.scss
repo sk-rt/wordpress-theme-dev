@@ -1,0 +1,312 @@
+/*********************************************************
+
+
+Post
+
+
+**********************************************************/
+/****************************************
+
+         postcard
+
+*****************************************/
+$card_gutter: 0.6%;
+.c-postcard {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin-left: -$card_gutter;
+    margin-right: -$card_gutter;
+    @media #{map-get($max, sm)} {
+        margin-left: -5%;
+        margin-right: -5%;
+    }
+}
+
+.c-postcard-item {
+    flex: 0 0 auto;
+    width: 100%/4 - $card_gutter * 2;
+    margin-left: $card_gutter;
+    margin-right: $card_gutter;
+    margin-bottom: 2.5%;
+    padding-bottom: 1em;
+    transition: background-color 0.4s;
+    @media #{map-get($max, lg)} {
+        width: 100%/3 - $card_gutter * 2;
+    }
+    @media #{map-get($max, md)} {
+        width: 100%/2 - $card_gutter * 2;
+        margin-bottom: 2em;
+    }
+    &.is-item-hover {
+        background-color: rgba($c_main, 1);
+        color: $c_base;
+    }
+}
+.c-postcard-item__inner {
+    display: block;
+    padding: 10px 10px 0;
+    @media #{map-get($max, md)} {
+        padding: 6px 6px 0;
+    }
+}
+.c-postcard-item__thumb {
+    width: 100%;
+    padding-top: 100%;
+    background-color: rgba($c_main, 0.1);
+    position: relative;
+    overflow: hidden;
+    img {
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: transform 0.2s;
+        pointer-events: none;
+        @supports (object-fit: cover) {
+            object-fit: cover;
+            height: 100%;
+        }
+    }
+    @at-root .is-item-hover & {
+        img {
+            transition-duration: 0.4s;
+            transform: scale(1.06);
+        }
+    }
+}
+.c-postcard-item__content {
+    color: $c_main;
+    padding: 1em 6px 0;
+    line-height: 1.4;
+    margin-bottom: 0.2em;
+    @media #{map-get($max, sm)} {
+        font-size: 0.9em;
+    }
+    @at-root .is-item-hover & {
+        color: $c_base;
+    }
+}
+.c-postcard-item__terms {
+    color: $c_main;
+    padding: 0 16px;
+    // text-align: right;
+    line-height: 1.4;
+    @media #{map-get($max, md)} {
+        padding: 0 12px;
+    }
+
+    a {
+        font-size: 12px;
+        border-bottom: 1px solid;
+        margin-right: 0.5em;
+        margin-bottom: 0.1em;
+        display: inline-block;
+        @media #{map-get($max, sm)} {
+            font-size: 9px;
+            margin-right: 0.4em;
+        }
+        @at-root .is-item-hover & {
+            color: $c_base;
+        }
+        &:focus {
+            font-weight: bold;
+            border-color: transparent;
+        }
+    }
+}
+/****************************************
+
+         postlist
+
+*****************************************/
+
+.c-postlist-item {
+    display: block;
+    &.has-button {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+@media #{map-get($min, md)} {
+    a.c-postlist-item {
+        transition: 0.3s opacity;
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}
+.c-postlist-item__inner {
+    flex: 1 1 auto;
+    border-top: 1px solid rgba($c_text, 0.3);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: baseline;
+    padding: 1.4em 0;
+}
+.c-postlist-item__heading {
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+    @media #{map-get($max, md)} {
+        font-size: 1em;
+    }
+}
+.c-postlist-item__tagline {
+    font-size: 0.8rem;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.c-postlist-item__description {
+    margin-top: 0.4em;
+}
+.c-postlist-meta__date {
+    font-size: 0.8em;
+    margin-right: 1em;
+    white-space: nowrap;
+    @media #{map-get($max, md)} {
+        font-size: 0.7em;
+    }
+}
+.c-postlist-item__button {
+    flex: 0 0 auto;
+    margin-left: 1em;
+    width: 200px;
+    margin-bottom: 2.3em;
+    @media #{map-get($max, md)} {
+        width: auto;
+    }
+}
+
+/****************************************
+
+         Post navi
+
+*****************************************/
+.c-post-navi {
+    text-align: center;
+    font-size: 1.3rem;
+    color: $c_main;
+}
+
+.c-post-navi__inner {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: stretch;
+}
+.c-post-navi__item {
+    display: block;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: baseline;
+    padding: 0.4em 1em;
+    i {
+        margin: 0 0.5em;
+    }
+    &.is-disabled {
+        pointer-events: none;
+        opacity: 0.3;
+    }
+}
+.c-post-navi__backtolist {
+    padding: 0.4em 1em;
+}
+
+/****************************************
+
+         Pager
+
+*****************************************/
+
+.c-pager {
+    margin-top: 3em;
+    position: relative;
+    @media #{map-get($max, md)} {
+        margin-top: 1em;
+    }
+}
+.c-pager__count {
+    display: none;
+    @extend .u-font-featured;
+    font-size: 1.3rem;
+    color: $c_main;
+    @media #{map-get($max, md)} {
+        display: block;
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.c-pager__container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    font-size: 1.3rem;
+    @media #{map-get($max, md)} {
+        justify-content: space-between;
+    }
+    a.page-numbers {
+        transition: background-color 0.2s;
+    }
+    a:hover {
+        background-color: rgba($c_main, 0.5);
+    }
+    .page-numbers {
+        width: 64px;
+        height: 64px;
+        background-color: $c_main;
+        margin: 0 2px;
+        border-radius: 100%;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        color: $c_base;
+        @extend .u-font-featured;
+        @media #{map-get($max, md)} {
+            width: 48px;
+            height: 48px;
+        }
+    }
+    .dots {
+        background-color: transparent;
+        margin: 0;
+        width: 2em;
+        color: $c_main;
+    }
+    .current {
+        background-color: rgba($c_main, 0.2);
+        color: $c_main;
+    }
+    .next {
+        margin-left: 1em;
+    }
+    .prev {
+        margin-right: 1em;
+    }
+
+    @media #{map-get($max, md)} {
+        .page-numbers {
+            display: none;
+            margin: 0;
+        }
+        .next,
+        .prev {
+            display: flex;
+        }
+        .next {
+            margin-left: auto;
+        }
+    }
+}

@@ -1,0 +1,313 @@
+/*********************************************************
+
+
+ Header
+ Gnavi
+
+
+**********************************************************/
+.l-header {
+    text-align: center;
+}
+
+/****************************************
+
+         ボタン
+
+*****************************************/
+.c-header-controller {
+    position: fixed;
+    top: 4vw;
+    right: 4vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    z-index: 100;
+    @media #{map-get($max, md)} {
+        top: 14px;
+        right: 14px;
+        flex-flow: column-reverse;
+        justify-content: flex-start;
+    }
+}
+.c-header-controller__item {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    background-color: $c_base;
+    color: $c_main;
+    &.is-menu {
+        background-color: $c_main;
+        color: $c_base;
+    }
+    @media #{map-get($max, md)} {
+        width: 48px;
+        height: 48px;
+    }
+    @media #{map-get($min, md)} {
+        transition: 0.3s opacity;
+        &.is-search {
+            &:hover {
+                opacity: 0.7;
+                .c-header-controller__search-icon {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        &.is-menu {
+            &:hover {
+                opacity: 0.7;
+                .c-header-controller__menu-icon {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+.c-header-controller__search-icon {
+    transition: 0.2s transform;
+    svg {
+        display: block;
+    }
+    @media #{map-get($max, md)} {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+.c-header-controller__menu-icon {
+    transition: 0.2s transform;
+}
+
+/****************************************
+
+         メニュ
+
+*****************************************/
+.l-menu {
+    z-index: 101;
+    @media #{map-get($max, md)} {
+        max-height: 100%;
+    }
+}
+.l-menu__sitename {
+    @media #{map-get($max, md)} {
+        &.l-menu__sitename {
+            padding: 1.6em 5%;
+            flex: 0 0 auto;
+        }
+    }
+}
+.l-menu__navi {
+    max-height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @media #{map-get($max, md)} {
+    }
+}
+.l-menu__navi__inner {
+    padding: 5vw 10%;
+    @media #{map-get($max, md)} {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+}
+
+.l-menu__navi__list {
+    text-align: left;
+    @media #{map-get($max, md)} {
+        text-align: left;
+    }
+}
+.l-menu__navi__item {
+    display: block;
+    line-height: 1.3;
+    margin-bottom: 1em;
+    position: relative;
+    span {
+        display: block;
+    }
+    .c-icon-angle--right {
+        position: absolute;
+        right: 100%;
+        top: 0.5em;
+        margin-right: 0.5em;
+
+        &::after {
+            width: 12px;
+            height: 12px;
+            border-width: 8px;
+        }
+        @media #{map-get($max, md)} {
+            &::after {
+                width: 8px;
+                height: 8px;
+                border-width: 6px;
+            }
+        }
+    }
+    [lang='en'] {
+        font-size: 2.2em;
+        line-height: 1.1;
+        white-space: nowrap;
+    }
+    [lang='ja'] {
+        font-size: 0.9em;
+        font-weight: 600;
+        opacity: 0.7;
+    }
+    @media #{map-get($max, md)} {
+        [lang='en'] {
+            font-size: 1.8em;
+            line-height: 1.1;
+        }
+    }
+    @media #{map-get($min, md)} {
+        transition: opacity 0.3s;
+        .c-icon-angle--right {
+            transition: transform 0.3s;
+        }
+        &:hover {
+            opacity: 0.7;
+            .c-icon-angle--right {
+                transform: translateX(0.3em);
+            }
+        }
+    }
+}
+
+/****************************************
+
+         検索
+
+*****************************************/
+.l-search {
+    z-index: 101;
+    @media #{map-get($max, md)} {
+        max-height: 100%;
+    }
+}
+.l-search-form {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @media #{map-get($max, md)} {
+        &.l-search-form {
+            align-items: flex-start;
+        }
+    }
+}
+.l-search-form__inner {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 80px 10%;
+    @media #{map-get($max, md)} {
+        padding: 60px 6%;
+    }
+}
+.l-search-form__text {
+    margin-bottom: 2em;
+    @media #{map-get($max, md)} {
+    }
+}
+.l-search-form__tax {
+    margin-bottom: 2em;
+}
+.l-search-form__tax__name {
+    color: $c_main;
+    font-size: 0.9em;
+    margin-bottom: 1em;
+}
+div.l-search__controll {
+    @media #{map-get($max, md)} {
+        flex: 0 0 auto;
+        display: block;
+    }
+}
+.l-search__controll__inner {
+    padding: 20px 20px 20px;
+    @media #{map-get($max, md)} {
+        padding: 14px 10px 10px;
+    }
+}
+.l-search__count {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    span {
+        display: inline-block;
+    }
+    .c-icon-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+        width: 24px;
+        height: 24px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        @at-root .is-loading & {
+            opacity: 1;
+            transition-delay: 0.3s;
+        }
+        @media #{map-get($max, md)} {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    .is-current {
+        position: relative;
+    }
+    .is-current-count {
+        font-size: 2em;
+        transition: opacity 0.2s linear, transform 0.2s ease;
+        @at-root .is-loading & {
+            opacity: 0;
+            transition-duration: 0.15s;
+            transform: translateY(10px);
+        }
+    }
+    @media #{map-get($max, md)} {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+}
+.l-search__form-buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+    .c-button {
+        margin: 4px 4px;
+    }
+    // @media #{map-get($max, lg)} {
+    //     .l-search__btn-submit {
+    //         min-width: 200px;
+    //     }
+    // }
+    @media #{map-get($max, md)} {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        .c-button {
+            flex: 1 1 auto;
+            margin: 0;
+            padding-top: 1em;
+            padding-bottom: 1em;
+            border-radius: 12px;
+        }
+        .l-search__btn-clear {
+            margin-right: 4px;
+            width: calc(40% - 6px);
+        }
+        .l-search__btn-submit {
+            width: 60%;
+            min-width: 0;
+        }
+    }
+}
