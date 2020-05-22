@@ -2,25 +2,27 @@
 
 Docker + frontend develop
 
-## 環境設定
+## Configuration
 
-`.env`ファイルを編集
+Edit `sample.env` and save as `.env`
 
 ```bash
-PROJECT_NAME=my-wordpress # コンテナ ネームスペース
+PROJECT_NAME=my-wordpress # namespace for docker container
 LOCAL_PROTOCOL=http # http or https
-LOCAL_PORT=8080 # WordPressの動作するポート
-MYSQL_PORT=3306 # mySqlのポート
-WP_LOCALE=ja # 言語設定
-WP_ADMIN_USER=admin # WordPress管理者アカウント
-WP_ADMIN_PASSWORD=admin
-WP_ADMIN_EMAIL=admin@example.com
-WP_THEME_NAME=mytheme # テーマディレクトリ名
-WP_INSTALL_DIR=/ # インストールディレクトリ
-WP_REQUIED_PLUGINS="classic-editor custom-post-type-permalinks wp-multibyte-patch" # 必須プラグイン(スペース区切り)
+LOCAL_PORT=8080 # WordPress Port
+MYSQL_PORT=3306 # MySQL Port
+WP_LOCALE=ja # WordPress Locale *
+WP_ADMIN_USER=admin # WordPress Admin user *
+WP_ADMIN_PASSWORD=admin # *
+WP_ADMIN_EMAIL=admin@example.com # *
+WP_THEME_NAME=mytheme # Theme directory *
+WP_INSTALL_DIR=/
+WP_REQUIED_PLUGINS="classic-editor custom-post-type-permalinks wp-multibyte-patch" # Required plugin *
 ```
 
-## Setup（初回のみ）
+\* Use on [wp-init.sh](./bin/wp-init.sh)
+
+## Setup
 
 ### Build docker images & Start
 
@@ -28,7 +30,7 @@ WP_REQUIED_PLUGINS="classic-editor custom-post-type-permalinks wp-multibyte-patc
 docker-compose up -d --build
 ```
 
-### Install WordPress & requred plugin
+### Install WordPress & requred plugins
 
 ```sh
 sh bin/wp-init.sh
@@ -37,9 +39,7 @@ sh bin/wp-init.sh
 ### Npm install
 
 ```sh
-yarn
-# or
-npm i
+yarn install
 ```
 
 ## Develop
@@ -56,7 +56,7 @@ docker-compose up -d
 docker-compose stop
 ```
 
-### Frontend Dev
+### Frontend Development
 
 ```sh
 yarn dev
