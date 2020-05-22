@@ -1,0 +1,109 @@
+/*********************************************************
+
+
+
+         Common
+         general
+
+
+
+
+**********************************************************/
+
+/****************************************
+
+          General Setting
+
+*****************************************/
+html {
+    font-size: 16px;
+    @media #{map-get($max, md)} {
+        font-size: 14px;
+    }
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.8;
+    font-weight: 300;
+    font-family: $def_font;
+    letter-spacing: 0.06em;
+    color: $c_text;
+    background-color: $c_base;
+    -webkit-text-size-adjust: 100%;
+    text-justify: inter-ideograph;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-feature-settings: 'palt';
+    -webkit-font-feature-settings: 'palt';
+    font-feature-settings: 'palt';
+    @extend %basic-scroll;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+svg {
+    max-width: 100%;
+}
+.safari,
+.chrome,
+.firefox,
+.chrome-mobile {
+    svg {
+        height: auto;
+    }
+}
+b,
+strong,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.5;
+    font-weight: 600;
+}
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: $def_font;
+    box-sizing: content-box;
+    font-size: 1rem;
+    color: inherit;
+    &:focus {
+        box-shadow: 0px 0px 2px 2px rgba(#fff, 0.2);
+        outline: none;
+    }
+}
+a {
+    text-decoration: inherit;
+    color: inherit;
+    &:focus {
+        outline: none;
+    }
+}
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+%basic-scroll {
+    &::-webkit-scrollbar {
+        width: 14px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: $c_text;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba($c_base, 0.3);
+        border: 2px solid $c_text;
+        border-radius: 10px;
+    }
+}
