@@ -14,11 +14,12 @@
   ],
   "scripts": {
     "start": "npm-run-all -p watch:*",
+    "dev": "npm-run-all start",
     "dist": "npm-run-all clean-dist dist:*",
     "watch:webpack": "webpack --watch",
     "dist:webpack": "NODE_ENV=production webpack -p",
     "build:webpack": "webpack",
-    "dist:wp-theme": "cpx \"src/public/**/*.{php,css,png}\" dist/wp-content/themes/my-theme/ -v",
+    "dist:wp-theme": "cpx \"public/themes/**/*.{php,css,png}\" dist/wp-content/themes/my-theme/ -v",
     "init:docker": "docker-compose build && npm run build:webpack",
     "start:docker": "docker-compose up -d",
     "stop:docker": "docker-compose stop",
