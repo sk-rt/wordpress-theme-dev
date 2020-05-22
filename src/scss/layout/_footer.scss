@@ -17,28 +17,3 @@
     }
 }
 
-.l-footer__author {
-    margin-bottom: 1.3em;
-}
-.l-footer__university-logo {
-    display: block;
-    margin: 0 auto 1em;
-    width: 200px;
-    img {
-        width: 100%;
-    }
-    @media #{map-get($max, md)} {
-        width: 130px;
-        margin: 0 auto 0.7em;
-    }
-}
-.l-footer__section-name {
-    font-size: 1.3rem;
-}
-.l-footer__section-name-en {
-    font-size: 0.9em;
-}
-
-.l-footer__contact {
-    font-size: 0.9em;
-}

@@ -103,8 +103,8 @@ Icon
 
     &::after {
         content: '';
-        border-top: 4px solid;
-        border-left: 4px solid;
+        border-top: 2px solid;
+        border-left: 2px solid;
         width: 8px;
         height: 8px;
         @media #{map-get($max, md)} {
