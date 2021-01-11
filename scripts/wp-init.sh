@@ -12,7 +12,7 @@ set +o allexport
 echo "-------------------------------------- \n以下でインストールしますか？" 
 echo " > SiteUrl: $LOCAL_PROTOCOL://localhost:$LOCAL_PORT\n > User: $WP_ADMIN_USER\n > Password: $WP_ADMIN_PASSWORD"
 read -p "[y/n]: " INS_CORE
-if [ "$INS_CORE" = 'yes' ] || [ "$INS_CORE" = 'YES' ] || [ "$INS_CORE" = 'y' ] ; then
+if [ "$INS_CORE" = 'yes' ] || [ "$INS_CORE" = 'YES' ] || [ "$INS_CORE" = 'y' ] || [ "$INS_CORE" = 'Y' ] ; then
     if ! $(docker exec -it $PROJECT_NAME-wordpress env sudo -u www-data wp core is-installed); then
         docker exec -it $PROJECT_NAME-wordpress env \
             sudo -u www-data wp core install \
@@ -34,7 +34,7 @@ fi
 echo "-------------------------------------- \n言語ファイルをインストールしますか？" 
 echo " > Lang: $WP_LOCALE"
 read -p "[y/n]: " INS_LANG
-if [ "$INS_LANG" = 'yes' ] || [ "$INS_LANG" = 'YES' ] || [ "$INS_LANG" = 'y' ] ; then
+if [ "$INS_LANG" = 'yes' ] || [ "$INS_LANG" = 'YES' ] || [ "$INS_LANG" = 'y' ] || [ "$INS_LANG" = 'Y' ] ; then
     docker exec -it $PROJECT_NAME-wordpress env \
         sudo -u www-data wp language core install $WP_LOCALE
     docker exec -it $PROJECT_NAME-wordpress env \
@@ -48,7 +48,7 @@ fi
 echo "-------------------------------------- \n必須プラグインをインストールしますか？" 
 echo " > Plugins:$WP_REQUIED_PLUGINS"
 read -p "[y/n]: " INS_PLUGINS
-if [ "$INS_PLUGINS" = 'yes' ] || [ "$INS_PLUGINS" = 'YES' ] || [ "$INS_PLUGINS" = 'y' ] ; then
+if [ "$INS_PLUGINS" = 'yes' ] || [ "$INS_PLUGINS" = 'YES' ] || [ "$INS_PLUGINS" = 'y' ] || [ "$INS_PLUGINS" = 'Y' ] ; then
     docker exec -it $PROJECT_NAME-wordpress env \
         sudo -u www-data wp plugin install $WP_REQUIED_PLUGINS --activate
     echo "必須プラグインをインストールしました\n"
@@ -61,7 +61,7 @@ fi
 echo "-------------------------------------- \nテーマをアクティブにしますか？" 
 echo "> Theme:$WP_THEME_NAME"
 read -p "[y/n]: " INS_THEME
-if [ $INS_THEME = 'yes' ] || [ $INS_THEME = 'YES' ] || [ $INS_THEME = 'y' ] ; then
+if [ $INS_THEME = 'yes' ] || [ $INS_THEME = 'YES' ] || [ $INS_THEME = 'y' ] ||  [ $INS_THEME = 'Y' ] ; then
     docker exec -it $PROJECT_NAME-wordpress env \
         sudo -u www-data wp theme activate $WP_THEME_NAME
     echo "テーマ'$WP_THEME_NAME'をアクティブにしました"
@@ -95,7 +95,7 @@ for e in ${WP_OPTIONS[@]}; do
     let i++
 done
 read -p "[y/n]: " UPDATE_OPTIONS
-if [ "$UPDATE_OPTIONS" = 'yes' ] || [ "$UPDATE_OPTIONS" = 'YES' ] || [ "$UPDATE_OPTIONS" = 'y' ] ; then
+if [ "$UPDATE_OPTIONS" = 'yes' ] || [ "$UPDATE_OPTIONS" = 'YES' ] || [ "$UPDATE_OPTIONS" = 'y' ] ||  [ "$UPDATE_OPTIONS" = 'Y' ] ; then
     i=0
     for OPTION in ${WP_OPTIONS[@]}; do
     set -- `echo $OPTION | tr '=' ' '`

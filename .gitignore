@@ -8,6 +8,7 @@ logs
 **/*.back.*
 node_modules
 bower_components
-
+/dist
 .db-data/*
 .env
+

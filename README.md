@@ -73,13 +73,13 @@ yarn dist
 ### Backup databese
 
 ```sh
-sh bin/db-backup.sh
+sh scripts/db-backup.sh
 ```
 
 ### Import databese
 
 ```sh
-sh bin/db-import.sh
+sh scripts/db-import.sh
 ```
 
 ### WP-CLI

@@ -7,13 +7,12 @@
 **********************************************************/
 
 .l-footer {
-    position: relative;
-    text-align: center;
-    background-color: #fff;
-    color: $c_base;
-    padding: 70px 5%;
-    @media #{map-get($max, md)} {
-        padding: 40px 5%;
-    }
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  color: $c_base;
+  padding: 70px 5%;
+  @media #{map-get($max, md)} {
+    padding: 40px 5%;
+  }
 }
-

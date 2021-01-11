@@ -13,9 +13,9 @@ Heading
 *****************************************/
 
 .c-heading-featured {
-    @extend .u-font-featured;
-    font-size: 2.5em;
-    @media #{map-get($max, md)} {
-        font-size: 2em;
-    }
+  @extend .u-font-featured;
+  font-size: 2.5em;
+  @media #{map-get($max, md)} {
+    font-size: 2em;
+  }
 }

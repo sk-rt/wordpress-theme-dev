@@ -6,12 +6,6 @@
   "author": "sk_rt",
   "license": "MIT",
   "private": true,
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 11",
-    "Android >= 4.4",
-    "ios_saf >= 8"
-  ],
   "scripts": {
     "start": "npm-run-all -p watch:*",
     "dev": "npm-run-all start",
@@ -56,12 +50,12 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.4",
     "mini-css-extract-plugin": "^0.9.0",
-    "node-sass": "^4.14.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^7.0.30",
     "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "sass": "^1.32.2",
     "sass-loader": "^8.0.2",
     "ts-loader": "^7.0.4",
     "typescript": "^3.9.3",
