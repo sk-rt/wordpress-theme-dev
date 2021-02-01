@@ -11,24 +11,24 @@
 
 *****************************************/
 .l-page-header {
-    background-color: rgba($c_main, 0.9);
-    padding: 3.3vw 2vw;
-    min-height: 80px;
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: flex-start;
-    color: $c_base;
-    @media #{map-get($max, md)} {
-        padding: 25px 6%;
-    }
+  background-color: rgba($c_main, 0.9);
+  padding: 3.3vw 2vw;
+  min-height: 80px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: flex-start;
+  color: $c_base;
+  @media #{map-get($max, md)} {
+    padding: 25px 6%;
+  }
 }
 
 .l-page-header__title {
-    color: $c_base;
-    font-size: 2rem;
-    @media #{map-get($max, md)} {
-    }
+  color: $c_base;
+  font-size: 2rem;
+  @media #{map-get($max, md)} {
+  }
 }
 
 /****************************************
@@ -37,10 +37,10 @@
 
 *****************************************/
 .l-page-content {
-    padding-top: 7em;
-    padding-bottom: 7em;
-    @media #{map-get($max, md)} {
-        padding-top: 1.5em;
-        padding-bottom: 5em;
-    }
+  padding-top: 7em;
+  padding-bottom: 7em;
+  @media #{map-get($max, md)} {
+    padding-top: 1.5em;
+    padding-bottom: 5em;
+  }
 }

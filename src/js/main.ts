@@ -2,13 +2,13 @@
 
 import '../scss/style.scss';
 document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-        main();
-    },
-    false
+  'DOMContentLoaded',
+  () => {
+    main();
+  },
+  false
 );
 
 const main = (): void => {
-    return;
+  return;
 };
