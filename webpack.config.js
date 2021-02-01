@@ -2,31 +2,22 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 require('dotenv').config();
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-
+const environment = process.env.NODE_ENV || 'development';
+const isDevelopment = environment === 'development';
 const publicPath = `${process.env.WP_INSTALL_DIR}themes/${process.env.WP_THEME_NAME}`;
-let outputPath, devMode, sourceMap;
-if (process.env.NODE_ENV === 'production') {
-  outputPath = `${__dirname}/public${publicPath}`;
-  devMode = 'production';
-  sourceMap = false;
-} else {
-  outputPath = `${__dirname}/public${publicPath}`;
-  devMode = 'development';
-  sourceMap = true;
-}
 
 module.exports = {
   entry: {
     main: `${__dirname}/src/js/main.ts`,
   },
   target: 'web',
-  mode: devMode,
-  devtool: sourceMap ? 'inline-source-map' : false,
+  mode: isDevelopment ? environment : 'production',
+  devtool: isDevelopment ? 'inline-source-map' : false,
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
-    path: outputPath,
+    path: isDevelopment ? `${__dirname}/public${publicPath}` : `${__dirname}/dist${publicPath}`,
     publicPath: publicPath,
     filename: 'js/[name].js',
   },
@@ -65,7 +56,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: sourceMap,
+              sourceMap: isDevelopment,
               url: false,
               importLoaders: 2,
             },
@@ -73,14 +64,16 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: sourceMap,
-              plugins: [require('autoprefixer')],
+              sourceMap: isDevelopment,
+              postcssOptions: {
+                plugins: [require('autoprefixer')],
+              },
             },
           },
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: sourceMap,
+              sourceMap: isDevelopment,
             },
           },
         ],
@@ -89,7 +82,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      NODE_ENV: JSON.stringify(devMode),
+      NODE_ENV: JSON.stringify(environment),
     }),
     new MiniCssExtractPlugin({
       filename: 'css/style.css',
