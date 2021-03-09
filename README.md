@@ -33,7 +33,7 @@ docker-compose up -d --build
 ### Install WordPress & requred plugins
 
 ```sh
-sh bin/wp-init.sh
+sh sctipts/wp-init.sh
 ```
 
 ### Npm install
