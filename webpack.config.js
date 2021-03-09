@@ -4,7 +4,7 @@ require('dotenv').config();
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const environment = process.env.NODE_ENV || 'development';
 const isDevelopment = environment === 'development';
-const publicPath = `${process.env.WP_INSTALL_DIR}themes/${process.env.WP_THEME_NAME}`;
+const publicPath = `/themes/${process.env.WP_THEME_NAME}`;
 
 module.exports = {
   entry: {
