@@ -13,7 +13,7 @@
     "watch:webpack": "webpack --watch",
     "dist:webpack": "NODE_ENV=production webpack --mode production",
     "build:webpack": "webpack",
-    "dist:wp-theme": "cpx \"public/themes/**/*\" dist/wp-content/themes/ -v",
+    "dist:wp-theme": "cpx \"public/themes/**/*\" dist/themes/ -v",
     "init:docker": "docker-compose build && npm run build:webpack",
     "init:wp": "sh sctipts/wp-init.sh",
     "start:docker": "docker-compose up -d",
