@@ -26,7 +26,7 @@ body {
   font-size: 1em;
   line-height: 1.8;
   font-weight: 300;
-  font-family: $def_font;
+  font-family: $default_font;
   letter-spacing: 0.06em;
   color: $c_text;
   background-color: $c_base;
@@ -36,7 +36,6 @@ body {
   -moz-font-feature-settings: 'palt';
   -webkit-font-feature-settings: 'palt';
   font-feature-settings: 'palt';
-  @extend %basic-scroll;
 }
 img {
   max-width: 100%;
@@ -45,14 +44,7 @@ img {
 svg {
   max-width: 100%;
 }
-.safari,
-.chrome,
-.firefox,
-.chrome-mobile {
-  svg {
-    height: auto;
-  }
-}
+
 b,
 strong,
 h1,
@@ -64,6 +56,17 @@ h6 {
   line-height: 1.5;
   font-weight: 600;
 }
+
+a,
+button {
+  &:focus {
+    outline: none;
+  }
+  &:focus-visible {
+    box-shadow: 0px 0px 2px 2px rgba(#ccc, 0.3);
+    outline: none;
+  }
+}
 button {
   background-color: transparent;
   border: none;
@@ -72,38 +75,39 @@ button {
   margin: 0;
   -webkit-appearance: none;
   appearance: none;
-  font-family: $def_font;
+  font-family: inherit;
   box-sizing: content-box;
   font-size: 1rem;
   color: inherit;
-  &:focus {
-    box-shadow: 0px 0px 2px 2px rgba(#fff, 0.2);
-    outline: none;
-  }
 }
 a {
   text-decoration: inherit;
   color: inherit;
-  &:focus {
-    outline: none;
-  }
 }
+/****************************************
+
+          clearfix
+
+*****************************************/
 .clearfix::after {
   content: '';
   display: block;
   clear: both;
 }
+/****************************************
 
-%basic-scroll {
-  &::-webkit-scrollbar {
-    width: 14px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: $c_text;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: rgba($c_base, 0.3);
-    border: 2px solid $c_text;
-    border-radius: 10px;
+          Wp admin
+
+*****************************************/
+body {
+  --adminbar-height: 0;
+  &.admin-bar {
+    --adminbar-height: 32px;
+    @media screen and (max-width: 782px) {
+      --adminbar-height: 46px;
+    }
+    @media screen and (max-width: 600px) {
+      --adminbar-height: 0;
+    }
   }
 }

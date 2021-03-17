@@ -43,4 +43,3 @@ register_taxonomy('genre', 'database',
         ),
     )
 );
-

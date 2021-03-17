@@ -82,4 +82,47 @@ Content
     margin: 2.5em auto;
     width: 80%;
   }
+  // ブロック
+  .wp-block-gallery {
+    padding-left: 0;
+  }
+  .wp-block-image,
+  .wp-block-embed {
+    figcaption {
+      color: inherit;
+      font-size: 13/16 * 1rem;
+      line-height: 1.4;
+      opacity: 0.7;
+      text-align: left;
+      margin-top: 0.7em;
+    }
+  }
+  .wp-block-image {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    img {
+      vertical-align: bottom;
+    }
+  }
+  iframe {
+    max-width: 100%;
+  }
+  .wp-block-embed {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    &.is-type-video {
+      .wp-block-embed__wrapper {
+        padding-top: 9/16 * 100%;
+        position: relative;
+        height: 0;
+        iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
 }

@@ -11,7 +11,6 @@ Icon
 .c-icon-close {
   display: block;
   width: 100%;
-  // max-width: 50px;
   height: 0;
   padding-top: 100%;
   position: relative;
@@ -20,11 +19,11 @@ Icon
   &::after {
     content: '';
     width: 100%;
-    border-top: 6px solid;
+    border-top: 2px solid;
     display: block;
     position: absolute;
     top: 50%;
-    margin-top: -3px;
+    margin-top: -1px;
   }
   &::before {
     transform: rotate(45deg);
@@ -35,15 +34,15 @@ Icon
   &.is-small {
     &::before,
     &::after {
-      border-width: 3px;
-      margin-top: -1px;
+      border-width: 1px;
+      margin-top: -0.5px;
     }
   }
   @media #{map-get($max, md)} {
     &::before,
     &::after {
-      border-width: 4px;
-      margin-top: -2px;
+      border-width: 2px;
+      margin-top: -1px;
     }
   }
 }
@@ -51,7 +50,7 @@ Icon
 /* -----------------------------
     kebab menu
 */
-.c-icon-menu {
+.c-icon-kebab {
   position: relative;
   i,
   &::before,
@@ -157,7 +156,7 @@ Icon
     height: 100%;
     box-sizing: border-box;
     border-radius: 100%;
-    border: 3px solid;
+    border: 2px solid;
   }
   &::after {
     border-top-color: transparent;

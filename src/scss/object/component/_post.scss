@@ -1,17 +1,17 @@
 /*********************************************************
 
 
-Post
+Post 
 
 
 **********************************************************/
 /****************************************
 
-         postcard
+         post card
 
 *****************************************/
 $card_gutter: 0.6%;
-.c-postcard {
+.c-card-list {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -22,7 +22,7 @@ $card_gutter: 0.6%;
   }
 }
 
-.c-postcard-item {
+.c-card-item {
   flex: 0 0 auto;
   width: 100%/4 - $card_gutter * 2;
   margin-left: $card_gutter;
@@ -38,14 +38,14 @@ $card_gutter: 0.6%;
     margin-bottom: 2em;
   }
 }
-.c-postcard-item__inner {
+.c-card-item__container {
   display: block;
   padding: 10px 10px 0;
   @media #{map-get($max, md)} {
     padding: 6px 6px 0;
   }
 }
-.c-postcard-item__thumb {
+.c-card-item__thumb {
   width: 100%;
   padding-top: 100%;
   background-color: rgba($c_main, 0.1);
@@ -71,7 +71,7 @@ $card_gutter: 0.6%;
     }
   }
 }
-.c-postcard-item__content {
+.c-card-item__content {
   color: $c_main;
   padding: 1em 6px 0;
   line-height: 1.4;
@@ -83,46 +83,34 @@ $card_gutter: 0.6%;
     color: $c_base;
   }
 }
-.c-postcard-item__terms {
+.c-card-item__terms {
   color: $c_main;
   padding: 0 16px;
-  // text-align: right;
   line-height: 1.4;
   @media #{map-get($max, md)} {
     padding: 0 12px;
   }
-
-  a {
-    font-size: 12px;
-    border-bottom: 1px solid;
-    margin-right: 0.5em;
-    margin-bottom: 0.1em;
-    display: inline-block;
-    @media #{map-get($max, sm)} {
-      font-size: 9px;
-      margin-right: 0.4em;
-    }
-    @at-root .is-item-hover & {
-      color: $c_base;
-    }
-    &:focus {
-      font-weight: bold;
-      border-color: transparent;
-    }
-  }
+}
+.c-card-item__term {
+  font-size: 12px;
+  border-bottom: 1px solid;
+  margin-right: 0.5em;
+  margin-bottom: 0.1em;
+  display: inline-block;
 }
 /****************************************
 
          postlist
 
 *****************************************/
-
-.c-postlist-item {
+.c-post-list {
+  border-bottom: 1px solid rgba($c_text, 0.3);
+}
+.c-post-item {
   display: block;
 }
 
-.c-postlist-item__inner {
-  flex: 1 1 auto;
+.c-post-item__inner {
   border-top: 1px solid rgba($c_text, 0.3);
   display: flex;
   flex-flow: row nowrap;
@@ -130,145 +118,27 @@ $card_gutter: 0.6%;
   align-items: baseline;
   padding: 1.4em 0;
 }
-.c-postlist-item__heading {
+.c-post-item__content {
+  flex: 1 1 auto;
+}
+.c-post-item__heading {
   font-size: 1.1em;
-  margin-bottom: 0.2em;
   @media #{map-get($max, md)} {
     font-size: 1em;
   }
 }
 
-.c-postlist-meta__date {
-  font-size: 0.8em;
+.c-post-list-item__meta {
   margin-right: 1em;
   white-space: nowrap;
+  flex: 0 0 auto;
   @media #{map-get($max, md)} {
     font-size: 0.7em;
   }
 }
-/****************************************
-
-         Post navi
-
-*****************************************/
-.c-post-navi {
-  text-align: center;
-  font-size: 1.3rem;
-  color: $c_main;
-}
-
-.c-post-navi__inner {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: stretch;
-}
-.c-post-navi__item {
-  display: block;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  align-items: baseline;
-  padding: 0.4em 1em;
-  i {
-    margin: 0 0.5em;
-  }
-  &.is-disabled {
-    pointer-events: none;
-    opacity: 0.3;
-  }
-}
-.c-post-navi__backtolist {
-  padding: 0.4em 1em;
-}
-
-/****************************************
-
-         Pager
-
-*****************************************/
-
-.c-pager {
-  margin-top: 3em;
-  position: relative;
+.c-post-item__meta__date {
+  font-size: 0.8em;
   @media #{map-get($max, md)} {
-    margin-top: 1em;
-  }
-}
-.c-pager__count {
-  display: none;
-  @extend .u-font-featured;
-  font-size: 1.3rem;
-  color: $c_main;
-  @media #{map-get($max, md)} {
-    display: block;
-    position: absolute;
-    text-align: center;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-.c-pager__container {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  align-items: stretch;
-  font-size: 1.3rem;
-  @media #{map-get($max, md)} {
-    justify-content: space-between;
-  }
-  a.page-numbers {
-    transition: background-color 0.2s;
-  }
-  a:hover {
-    background-color: rgba($c_main, 0.5);
-  }
-  .page-numbers {
-    width: 64px;
-    height: 64px;
-    background-color: $c_main;
-    margin: 0 2px;
-    border-radius: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    color: $c_base;
-    @extend .u-font-featured;
-    @media #{map-get($max, md)} {
-      width: 48px;
-      height: 48px;
-    }
-  }
-  .dots {
-    background-color: transparent;
-    margin: 0;
-    width: 2em;
-    color: $c_main;
-  }
-  .current {
-    background-color: rgba($c_main, 0.2);
-    color: $c_main;
-  }
-  .next {
-    margin-left: 1em;
-  }
-  .prev {
-    margin-right: 1em;
-  }
-
-  @media #{map-get($max, md)} {
-    .page-numbers {
-      display: none;
-      margin: 0;
-    }
-    .next,
-    .prev {
-      display: flex;
-    }
-    .next {
-      margin-left: auto;
-    }
+    font-size: 0.7em;
   }
 }
