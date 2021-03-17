@@ -6,19 +6,23 @@
  ***************************************************************/
 
 define("SP_WIDTH", "767px");
+/* ========================================
 
-/* -----------------------
-Custom Media Sizes
--------------------------*/
+画像サイズの追加・調整
+
+======================================== */
+
 add_theme_support('post-thumbnails');
 update_option('medium_large_size_w', 0);
 add_image_size('thumb-for-admin-auto', 100, 100, false);
 add_image_size('post-thumbnail', 300, 300, true);
 
+/* ========================================
 
-/* -----------------------
-Custom wp_head
--------------------------*/
+wp headのカスタム
+
+======================================== */
+
 function my_custom_wp_head()
 {
     remove_action('wp_head', 'wp_generator'); // generator
@@ -29,9 +33,9 @@ function my_custom_wp_head()
     remove_action('wp_head', 'feed_links_extra', 3); // その他フィードを消去
 }
 add_action('init', 'my_custom_wp_head');
-/* -----------------------
-　絵文字機能削除
--------------------------*/
+/**
+ * 　絵文字機能削除
+ */
 function my_disable_emoji()
 {
     remove_action('wp_head', 'print_emoji_detection_script', 7);
@@ -44,9 +48,9 @@ function my_disable_emoji()
 }
 add_action('init', 'my_disable_emoji');
 
-/* -----------------------
-テーマのCSS,JS読み込み
--------------------------*/
+/**
+ * テーマのCSS,JS読み込み
+ */
 function my_get_filetime( $filepath)
 {
     if (file_exists($filepath)) {
@@ -77,10 +81,10 @@ function theme_load_scripts()
 
 add_action('wp_enqueue_scripts', 'theme_load_scripts');
 
-/* -----------------------
-wp_enqueue_scriptに
-defer属性を追加
--------------------------*/
+/**
+ * wp_enqueue_scriptに
+ * defer属性を追加
+ */
 function my_add_defer($tag, $handle)
 {
     if ($handle !== 'main') {
