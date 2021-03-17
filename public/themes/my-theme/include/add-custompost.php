@@ -1,7 +1,8 @@
 <?php
 /***************************************************************
 
-カスタム投稿を追加
+カスタム投稿/タクソノミー
+
 @see https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/register_post_type
 @see https://developer.wordpress.org/resource/dashicons/
 
@@ -28,7 +29,7 @@ register_post_type(
         'rewrite' => array('with_front' => false),
     )
 );
-register_taxonomy('genre', 'database',
+register_taxonomy('genre', 'custom',
     array(
         'label' => 'ジャンル',
         'public' => true,
@@ -43,4 +44,3 @@ register_taxonomy('genre', 'database',
         ),
     )
 );
-

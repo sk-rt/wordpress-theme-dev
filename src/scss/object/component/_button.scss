@@ -114,32 +114,6 @@ Button
     }
   }
 
-  &.is-search {
-    svg {
-      width: 30px;
-      height: 30px;
-      @media #{map-get($max, md)} {
-        width: 20px;
-        height: 20px;
-      }
-    }
-  }
-  &.is-search-min {
-    @media #{map-get($max, md)} {
-      svg {
-        width: 15px;
-        height: 15px;
-      }
-    }
-  }
-  &.is-list {
-    svg {
-      @media #{map-get($max, md)} {
-        width: 15px;
-        height: 15px;
-      }
-    }
-  }
   .c-icon-close {
     width: 20px;
     @media #{map-get($max, md)} {
