@@ -13,4 +13,5 @@
 <meta itemprop="image" content="<?php echo util_get_og_image_url(); ?>">
 <link rel="icon" type="image/png" sizes="48x48" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
 <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
+<?php debug_log(util_get_description()) ?>
 <?php wp_head(); ?>

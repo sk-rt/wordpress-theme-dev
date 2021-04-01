@@ -127,6 +127,19 @@ add_shortcode('template', function ($atts) {
 
 /* ========================================
 
+Logger
+
+======================================== */
+/**
+ * Logファイルに変数を出力
+ */
+function debug_log($var)
+{
+    \error_log(var_export($var, true) . "\n", 3, __DIR__ . '/../log/debug.log');
+};
+
+/* ========================================
+
 Global ナビ
 
 ======================================== */
@@ -135,21 +148,21 @@ function get_navi_arr()
     return array(
         array(
             'name' => 'about-us',
-            'permalink' => home_url("about/"),
+            'permalink' => home_url("/about"),
             'label' => 'About us',
             'nav-slug' => '/about',
             'disabled' => false,
         ),
         array(
             'name' => 'news',
-            'permalink' => home_url("news/"),
+            'permalink' => home_url("/news"),
             'label' => 'News',
             'nav-slug' => '/news',
             'disabled' => false,
         ),
         array(
             'name' => 'contact',
-            'permalink' => home_url("contact/"),
+            'permalink' => home_url("/contact"),
             'label' => 'Contact',
             'nav-slug' => '/contact',
             'disabled' => false,
