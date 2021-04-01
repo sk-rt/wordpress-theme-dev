@@ -10,7 +10,7 @@ utility
  */
 function util_get_canonical_url()
 {
-    return esc_html((empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
+    return esc_html((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 }
 
 /**
@@ -68,13 +68,16 @@ function util_get_og_image_url()
  */
 function util_get_description()
 {
+    if (is_front_page()) {
+        return get_bloginfo('description');
+    }
     if (is_single() || is_page()) {
         global $post;
         setup_postdata($post);
         if ($excerpt = get_the_excerpt()) {
             return $excerpt;
         } else {
-            return get_the_title() . "｜" . get_bloginfo('description');
+            return get_the_title() . '｜' . get_bloginfo('description');
         }
         wp_reset_postdata();
     } else {

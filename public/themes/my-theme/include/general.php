@@ -4,8 +4,7 @@
 基本設定
 
  ***************************************************************/
-
-define("SP_WIDTH", "767px");
+add_theme_support( 'title-tag' );
 /* ========================================
 
 画像サイズの追加・調整
@@ -26,7 +25,7 @@ wp headのカスタム
 function my_custom_wp_head()
 {
     remove_action('wp_head', 'wp_generator'); // generator
-    remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0); // rel="shortlink"
+    // remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0); // rel="shortlink"
     remove_action('wp_head', 'wlwmanifest_link'); //wlwmanifest.xml
     remove_action('wp_head', 'rsd_link'); //RPC用XML
     remove_action('wp_head', 'feed_links', 2); // 投稿フィード、コメントフィードを消去

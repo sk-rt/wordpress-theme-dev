@@ -1,6 +1,6 @@
 <?php 
-$posttype = get_post_type();
-$posttype_url = get_post_type_archive_link($posttype);
+$post_type = get_post_type();
+$post_type_archive_link = get_post_type_archive_link($post_type);
 
 ?>
 <div class="c-post-navi">
@@ -16,7 +16,7 @@ $posttype_url = get_post_type_archive_link($posttype);
                 <span class="u-font-featured">Prev</span>
             </span>
         <?php endif; ?>
-        <a href="<?php echo $posttype_url; ?>" class="c-post-navi__backtolist u-font-featured">
+        <a href="<?php echo $post_type_archive_link; ?>" class="c-post-navi__backtolist u-font-featured">
            All
         </a>
         <?php if (get_next_post()): ?>
