@@ -3,7 +3,7 @@
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
 <?php get_template_part('template-parts/common/head');?>
 </head>
-<body <?php body_class($body_class); ?>>
+<body <?php body_class(); ?>>
 <header id="header" class="l-header">
    <h1>My WordPress</h1>
    <nav>

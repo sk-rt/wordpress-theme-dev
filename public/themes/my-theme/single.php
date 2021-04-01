@@ -14,16 +14,14 @@ $post_type_name = esc_html(get_post_type_object($post_type)->label );
     <div class="l-page-content u-gutter--lg">
         <div id="post-<?php the_ID();?>" class="c-article u-container--sm">
             <article class="c-article__inner">
-        
                 <div class="c-article__header">
                     <h1 class="c-article__title">
                         <?php the_title();?>
                     </h1>
                     <div class="c-article__meta ">
-                    <time class="c-article__date" datetime="<?php the_time('c');?>" >
-                        <?php echo esc_html(get_the_date()); ?>
-                    </time>
-                    
+                        <time class="c-article__date" datetime="<?php the_time('c');?>" >
+                            <?php echo esc_html(get_the_date()); ?>
+                        </time>
                     </div>
                 </div>
                 <div class="c-article__eyecatch">
@@ -35,7 +33,6 @@ $post_type_name = esc_html(get_post_type_object($post_type)->label );
                 <div class="c-article__content c-content">
                     <?php the_content() ?>
                 </div>
-            
             </article>
             <?php  get_template_part("template-parts/common/single-post-nav");  ?>
         </div>

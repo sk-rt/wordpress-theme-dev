@@ -1,13 +1,39 @@
 <?php
 /***************************************************************
 
-
 Custom Queries
 
+ ***************************************************************/
+/* ========================================
 
-***************************************************************/
+クエリの変更
 
+======================================== */
 
+function my_custom_query($query)
+{
+    if (is_admin() && !$query->is_main_query()) {
+        return;
+    }
+    if ($query->is_tax('genre')) {
+        $query->set('post_type', 'custom');
+    }
+}
+add_action('pre_get_posts', 'my_custom_query');
+
+/* ========================================
+
+Body Class
+
+======================================== */
+function my_add_body_classes($classes)
+{
+    if (is_front_page()) {
+        return array_merge($classes, array('is-front-page'));
+    }
+    return ($classes);
+}
+add_filter('body_class', 'my_add_body_classes', 10, 1);
 
 /* ========================================
 
@@ -31,7 +57,6 @@ function my_custom_handle_404()
     }
 }
 add_action('template_redirect', 'my_custom_handle_404');
-
 
 /* ========================================
 

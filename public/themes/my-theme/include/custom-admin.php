@@ -18,7 +18,7 @@ function my_handle_post_suppurt()
     remove_post_type_support('post', 'comments');
     remove_post_type_support('post', 'trackbacks');
     remove_post_type_support('post', 'post-formats');
-    
+
     //remove from page
     remove_post_type_support('page', 'comments');
     remove_post_type_support('page', 'trackbacks');
@@ -68,7 +68,6 @@ function my_category_terms_checklist_no_top($args, $post_id = null)
 }
 add_action('wp_terms_checklist_args', 'my_category_terms_checklist_no_top');
 
-
 /* ========================================
 
 メニューのカスタム
@@ -107,8 +106,6 @@ add_action('post_type_labels_post', function ($labels) {
     }
     return $labels;
 }, 10, 1);
-
-
 
 /* ========================================
 
@@ -174,7 +171,6 @@ function my_remove_wpautop_filter($content)
     return $content;
 }
 add_filter('the_content', 'my_remove_wpautop_filter', 9);
-
 
 /**
  * Classic editorのウィジウィグのボタンを削除
@@ -254,6 +250,9 @@ add_action('enqueue_block_editor_assets', 'my_gutenberg_enqueue');
 add_action('init', 'my_remove_default_block_pattern');
 function my_remove_default_block_pattern()
 {
+    if (!function_exists('unregister_block_pattern')) {
+        return;
+    }
     $patterns = [
         'core/two-buttons', // 2ボタン
         'core/three-buttons', // 3つのボタン
