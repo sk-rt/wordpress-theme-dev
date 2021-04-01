@@ -11,4 +11,5 @@ bower_components
 /dist
 .db-data/*
 .env
-
+.env.*
+!.env.example

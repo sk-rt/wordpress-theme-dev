@@ -1,10 +1,10 @@
 # WordPress Theme Dev
 
-Docker + frontend develop
+Docker + frontend starter for develop
 
 ## Configuration
 
-Edit `sample.env` and save as `.env`
+Edit `.env.example` and save as `.env`
 
 ```bash
 PROJECT_NAME=my-wordpress # namespace for docker container
