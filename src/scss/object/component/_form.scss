@@ -1,3 +1,5 @@
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -31,7 +33,7 @@ textarea {
   font-weight: normal;
   font-family: inherit;
   border: 1px solid;
-  background: $c_base;
+  background: variables.$c_base;
   color: inherit;
   vertical-align: middle;
   box-sizing: border-box;

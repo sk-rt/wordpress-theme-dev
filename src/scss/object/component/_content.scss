@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "../../foundation/variables";
+@use "../../foundation/general";
+
 /*********************************************************
 
 
@@ -14,17 +18,17 @@ Content
     margin-bottom: 0.6em;
   }
   h1 {
-    font-size: 24/16 * 1em;
+    font-size: math.div(24, 16) * 1em;
     margin-top: 1.3em;
     margin-bottom: 1em;
-    border-bottom: 1px solid $c_main;
+    border-bottom: 1px solid variables.$c_main;
     padding-bottom: 0.1em;
   }
   h2 {
-    font-size: 20/16 * 1em;
+    font-size: math.div(20, 16) * 1em;
     margin-top: 1.3em;
     margin-bottom: 1em;
-    border-left: 4px solid $c_main;
+    border-left: 4px solid variables.$c_main;
     padding-left: 0.6em;
     padding-bottom: 0.2em;
     padding-top: 0.2em;
@@ -32,7 +36,7 @@ Content
 
   h3,
   h4 {
-    font-size: 18/16 * 1em;
+    font-size: math.div(18, 16) * 1em;
     margin-top: 1em;
     margin-bottom: 0.7em;
   }
@@ -43,7 +47,7 @@ Content
     font-size: 1em;
   }
   a {
-    color: $c_main;
+    color: variables.$c_main;
     text-decoration: underline;
   }
   strong {
@@ -90,7 +94,7 @@ Content
   .wp-block-embed {
     figcaption {
       color: inherit;
-      font-size: 13/16 * 1rem;
+      font-size: math.div(13, 16) * 1rem;
       line-height: 1.4;
       opacity: 0.7;
       text-align: left;
@@ -112,7 +116,7 @@ Content
     margin-bottom: 2em;
     &.is-type-video {
       .wp-block-embed__wrapper {
-        padding-top: 9/16 * 100%;
+        padding-top: math.div(9, 16) * 100%;
         position: relative;
         height: 0;
         iframe {

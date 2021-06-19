@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -12,10 +15,10 @@ Font Utils
 *****************************************/
 
 .u-font-featured {
-  font-family: $featured_font;
+  font-family: variables.$featured_font;
 }
 .u-color-main {
-  color: $c_main;
+  color: variables.$c_main;
 }
 /* -----------------------------
     Font large / small
@@ -39,17 +42,17 @@ Font Utils
   text-align: justify;
 }
 .u-max-md-align--left {
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     text-align: left;
   }
 }
 .u-max-md-align--right {
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     text-align: right;
   }
 }
 .u-max-md-align--center {
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     text-align: center;
   }
 }

@@ -1,3 +1,7 @@
+@use "sass:math";
+@use "sass:map";
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -18,37 +22,37 @@ $card_gutter: 0.6%;
   align-items: stretch;
   margin-left: -$card_gutter;
   margin-right: -$card_gutter;
-  @media #{map-get($max, sm)} {
+  @media #{map.get(variables.$max, sm)} {
   }
 }
 
 .c-card-item {
   flex: 0 0 auto;
-  width: 100%/4 - $card_gutter * 2;
+  width: 100% * 0.25 - $card_gutter * 2;
   margin-left: $card_gutter;
   margin-right: $card_gutter;
   margin-bottom: 2.5%;
   padding-bottom: 1em;
   transition: background-color 0.4s;
-  @media #{map-get($max, lg)} {
-    width: 100%/3 - $card_gutter * 2;
+  @media #{map.get(variables.$max, lg)} {
+    width: math.div(100%, 3) - $card_gutter * 2;
   }
-  @media #{map-get($max, md)} {
-    width: 100%/2 - $card_gutter * 2;
+  @media #{map.get(variables.$max, md)} {
+    width: 100% * 0.5 - $card_gutter * 2;
     margin-bottom: 2em;
   }
 }
 .c-card-item__container {
   display: block;
   padding: 10px 10px 0;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     padding: 6px 6px 0;
   }
 }
 .c-card-item__thumb {
   width: 100%;
   padding-top: 100%;
-  background-color: rgba($c_main, 0.1);
+  background-color: rgba(variables.$c_main, 0.1);
   position: relative;
   overflow: hidden;
   img {
@@ -72,22 +76,22 @@ $card_gutter: 0.6%;
   }
 }
 .c-card-item__content {
-  color: $c_main;
+  color: variables.$c_main;
   padding: 1em 6px 0;
   line-height: 1.4;
   margin-bottom: 0.2em;
-  @media #{map-get($max, sm)} {
+  @media #{map.get(variables.$max, sm)} {
     font-size: 0.9em;
   }
   @at-root .is-item-hover & {
-    color: $c_base;
+    color: variables.$c_base;
   }
 }
 .c-card-item__terms {
-  color: $c_main;
+  color: variables.$c_main;
   padding: 0 16px;
   line-height: 1.4;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     padding: 0 12px;
   }
 }
@@ -104,14 +108,14 @@ $card_gutter: 0.6%;
 
 *****************************************/
 .c-post-list {
-  border-bottom: 1px solid rgba($c_text, 0.3);
+  border-bottom: 1px solid rgba(variables.$c_text, 0.3);
 }
 .c-post-item {
   display: block;
 }
 
 .c-post-item__inner {
-  border-top: 1px solid rgba($c_text, 0.3);
+  border-top: 1px solid rgba(variables.$c_text, 0.3);
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
@@ -123,7 +127,7 @@ $card_gutter: 0.6%;
 }
 .c-post-item__heading {
   font-size: 1.1em;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     font-size: 1em;
   }
 }
@@ -132,13 +136,13 @@ $card_gutter: 0.6%;
   margin-right: 1em;
   white-space: nowrap;
   flex: 0 0 auto;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     font-size: 0.7em;
   }
 }
 .c-post-item__meta__date {
   font-size: 0.8em;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     font-size: 0.7em;
   }
 }

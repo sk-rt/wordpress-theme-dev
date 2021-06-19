@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -38,7 +41,7 @@ Icon
       margin-top: -0.5px;
     }
   }
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     &::before,
     &::after {
       border-width: 2px;
@@ -73,7 +76,7 @@ Icon
   &::after {
     transform: translateX(15px);
   }
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     i,
     &::before,
     &::after {
@@ -106,7 +109,7 @@ Icon
     border-left: 2px solid;
     width: 8px;
     height: 8px;
-    @media #{map-get($max, md)} {
+    @media #{map.get(variables.$max, md)} {
       border-width: 3px;
       width: 6px;
       height: 6px;
@@ -172,7 +175,7 @@ Icon
     animation: spin 1s infinite linear forwards;
   }
   &.is-color-main {
-    color: $c_main;
+    color: variables.$c_main;
   }
 }
 @keyframes spin {

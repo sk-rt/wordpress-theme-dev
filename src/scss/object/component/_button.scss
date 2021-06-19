@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -14,9 +17,9 @@ Button
 
 .c-button {
   padding: 0.8em 1.4em;
-  background-color: $c_main;
+  background-color: variables.$c_main;
   display: inline-block;
-  color: $c_base;
+  color: variables.$c_base;
   border-radius: 1.7em;
   border-radius: 1.8em / 1.8em;
   position: relative;
@@ -26,9 +29,9 @@ Button
   min-width: 250px;
   box-sizing: border-box;
   text-align: center;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     padding: 0.7em 1em;
-    background-color: $c_main;
+    background-color: variables.$c_main;
     font-size: 1rem;
     min-width: 150px;
   }
@@ -40,17 +43,17 @@ Button
     padding-right: 2.7em;
   }
   &.is-inversion {
-    background-color: $c_base;
-    color: $c_main;
+    background-color: variables.$c_base;
+    color: variables.$c_main;
   }
   &.is-inversion-pale {
-    background-color: rgba($c_base, 0.1);
-    color: $c_base;
+    background-color: rgba(variables.$c_base, 0.1);
+    color: variables.$c_base;
   }
   &.is-border {
     background-color: transparent;
     border: 2px solid;
-    color: $c_main;
+    color: variables.$c_main;
   }
   &.is-sm {
     font-size: 1rem;
@@ -60,7 +63,7 @@ Button
       padding-left: 2.2em;
       padding-right: 2.2em;
     }
-    @media #{map-get($max, md)} {
+    @media #{map.get(variables.$max, md)} {
       min-width: 80px;
       font-size: 0.9em;
     }
@@ -70,7 +73,7 @@ Button
     min-width: 300px;
     padding: 1.3em 2em;
     border-radius: 0em;
-    @media #{map-get($max, md)} {
+    @media #{map.get(variables.$max, md)} {
       min-width: 0;
       display: block;
       font-size: 1.1em;
@@ -83,7 +86,7 @@ Button
     pointer-events: none;
     opacity: 0.4;
   }
-  @media #{map-get($min, md)} {
+  @media #{map.get(variables.$min, md)} {
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.7;
@@ -106,7 +109,7 @@ Button
   svg {
     display: block;
   }
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     right: 12px;
     &.is-left {
       left: 12px;
@@ -116,7 +119,7 @@ Button
 
   .c-icon-close {
     width: 20px;
-    @media #{map-get($max, md)} {
+    @media #{map.get(variables.$max, md)} {
       width: 14px;
     }
   }
@@ -125,9 +128,9 @@ Button
 .c-term-button {
   padding: 0.2em 1em;
   margin: 0.2em 0.1em;
-  background-color: $c_main;
+  background-color: variables.$c_main;
   display: inline-block;
-  color: $c_base;
+  color: variables.$c_base;
   border-radius: 1.5em;
   position: relative;
   font-weight: 600;

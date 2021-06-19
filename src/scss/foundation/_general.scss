@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "variables";
+
 /*********************************************************
 
 
@@ -17,7 +20,7 @@
 *****************************************/
 html {
   font-size: 16px;
-  @media #{map-get($max, md)} {
+  @media #{map.get(variables.$max, md)} {
     font-size: 14px;
   }
 }
@@ -26,10 +29,10 @@ body {
   font-size: 1em;
   line-height: 1.8;
   font-weight: 300;
-  font-family: $default_font;
+  font-family: variables.$default_font;
   letter-spacing: 0.06em;
-  color: $c_text;
-  background-color: $c_base;
+  color: variables.$c_text;
+  background-color: variables.$c_base;
   -webkit-text-size-adjust: 100%;
   text-justify: inter-ideograph;
   -webkit-font-smoothing: antialiased;
@@ -89,11 +92,14 @@ a {
           clearfix
 
 *****************************************/
-.clearfix::after {
-  content: '';
-  display: block;
-  clear: both;
+.clearfix {
+  &::after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
+
 /****************************************
 
           Wp admin

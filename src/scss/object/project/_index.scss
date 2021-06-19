@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../../foundation/variables";
+
 /*********************************************************
 
 
@@ -12,5 +15,5 @@
          XXX
 
 *****************************************/
-@media #{map-get($max, sm)} {
+@media #{map.get(variables.$max, sm)} {
 }
