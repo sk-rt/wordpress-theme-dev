@@ -10,7 +10,6 @@ Edit `.env.example` and save as `.env`
 PROJECT_NAME=my-wordpress # namespace for docker container
 LOCAL_PROTOCOL=http # http or https
 LOCAL_PORT=8080 # WordPress Port
-MYSQL_PORT=3306 # MySQL Port
 WP_LOCALE=ja # WordPress Locale *
 WP_ADMIN_USER=admin # WordPress Admin user *
 WP_ADMIN_PASSWORD=admin # *
