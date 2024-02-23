@@ -1,10 +1,13 @@
 # *****************************
 # WordPress公式imageにwp-cliを追加
 # *****************************
-FROM wordpress:latest
+FROM wordpress:php8.2-apache
 # 必要なツール郡をインストール
 RUN apt-get update
-RUN apt-get -y install wget sudo
+RUN apt-get install -y \
+     wget \
+     sudo \
+     vim
 # wp-cliをインストール
 WORKDIR /
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
