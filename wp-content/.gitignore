@@ -21,6 +21,6 @@ plugins/*
 themes/index.php
 # Required Plugin
 # !plugin-name
-
+!setup-theme
 # default themes
 themes/twenty*

@@ -1,97 +1,72 @@
 # WordPress Theme Dev
 
-Docker + frontend starter for develop
+ローカルのWordPress実行環境にDocker/Docker Compose、  
+フロントエンドのビルド環境にnode/npmを使用します。
 
-## Configuration
+## 必須要件
+- Docker Compose
+- node.js ^20
 
-Edit `.env.example` and save as `.env`
+## セットアップ
 
-```bash
-PROJECT_NAME=my-wordpress # namespace for docker container
-LOCAL_PROTOCOL=http # http or https
-LOCAL_PORT=8080 # WordPress Port
-WP_LOCALE=ja # WordPress Locale *
-WP_ADMIN_USER=admin # WordPress Admin user *
-WP_ADMIN_PASSWORD=admin # *
-WP_ADMIN_EMAIL=admin@example.com # *
-WP_THEME_NAME=mytheme # Theme directory *
-WP_INSTALL_DIR=/
-WP_REQUIED_PLUGINS="classic-editor custom-post-type-permalinks wp-multibyte-patch" # Required plugin *
+### 1. `.env`の作成.
+`.env.example` を `.env` として別名保存してください。
+
+### 2. ローカルサーバー・WP環境の構築
+```sh
+docker compose build
 ```
 
-\* Use on [wp-init.sh](./bin/wp-init.sh)
-
-## Setup
-
-### Build docker images & Start
-
-```
-docker-compose up -d --build
+### 3. node moduleのインストール
+```sh
+npm install
 ```
 
-### Install WordPress & requred plugins
+### 4. WordPressのインストール、初期設定  
+
+.envの設定を元にWordPressのインストールと、言語のダウンロード、テーマの設定、オプションの更新を行います。
+    
+```sh
+npm run setup:wp-theme
+```
+
+
+---
+
+## ローカルサーバー
+
+### 開発用サーバー（ホットリロード）
+
+CSS/JSの修正にはこちらを使用してください。  
+http://localhost:8282 に開発サーバー、別途Viteのホットリロードサーバーがが立ち上がります。
 
 ```sh
-sh sctipts/wp-init.sh
+npm run dev 
 ```
 
-### Npm install
+### 開発用プレビュー
+
+フロント(CSS/JS)のビルドと、プレビュー用Dockerが立ち上がります。  
+CSS/JSはビルド済のものを参照します。  
+URLは上記と同じ http://localhost:8282 になります。
 
 ```sh
-yarn install
+npm run preview
 ```
 
-## Develop
 
-### Start Container
+### Dockerコンテナのストップ
 
 ```sh
-docker-compose up -d
+docker compose stop
 ```
 
-### Stop Container
+
+## 本番ビルド
+
+./dist/themes/ に、テーマが書き出されます。  
+
 
 ```sh
-docker-compose stop
-```
-
-### Frontend Development
-
-```sh
-yarn dev
-```
-
-### Frontend Production build
-
-```sh
-yarn dist
-```
-
-## Utils
-
-### Backup databese
-
-```sh
-sh scripts/db-backup.sh
-```
-
-### Import databese
-
-```sh
-sh scripts/db-import.sh
-```
-
-### WP-CLI
-
-```sh
-docker exec -it ${PROJECT_NAME}-wordpress /bin/bash
-sudo -u www-data wp --info
-```
-
-### SQL
-
-```sh
-docker exec -it ${PROJECT_NAME}-mysql /usr/bin/mysql -u root -p
-Enter Password: root
-mysql> show databases;
+npm run dist
 ```

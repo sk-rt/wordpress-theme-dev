@@ -21,6 +21,7 @@
     "dist:frontend": "tsc && vite build --mode production",
     "build:frontend": "vite build --mode development",
     "dist:wp-theme": "node ./scripts/dist-wp-theme.mjs",
+    "setup:wp-theme": "node ./scripts/setup-wp.mjs",
     "image-optimize": "node ./scripts/image-optimize.mjs",
     "lint": "eslint src/**/*.ts",
     "format": "prettier src --write",

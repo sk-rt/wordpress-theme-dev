@@ -8,7 +8,7 @@ dotenv.config();
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = resolve(__dirname, '../', `dist`);
-const publicDir = resolve(__dirname, '../', `public`);
+const publicDir = resolve(__dirname, '../', `wp-content`);
 const theme = process.env.WP_THEME_NAME;
 
 const distFiles = globSync(`${publicDir}/themes/${theme}/**/*`, {

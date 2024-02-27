@@ -1,4 +1,4 @@
-@use "sass:map";
+@use 'sass:map';
 /* -----------------------
 Font
 ----------------------- */
@@ -6,14 +6,6 @@ $default_font: 'Hiragino Sans', 'ヒラギノ角ゴシック', 'ヒラギノ角�
   'Hiragino Kaku Gothic ProN', '游ゴシック', YuGothic, 'メイリオ', Meiryo, Roboto, sans-serif;
 $featured_font: '游明朝体', 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'HGS明朝E', 'メイリオ',
   'Meiryo', serif;
-/* -----------------------
-Color
------------------------ */
-$c_text: #000;
-$c_base: #fff;
-$c_main: #0000ff;
-$c_accent: #ff0;
-$c_danger: #f00;
 
 /* -----------------------
 Breackpoint
@@ -22,7 +14,7 @@ $bp_map: (
   sm: 576px,
   md: 768px,
   lg: 992px,
-  xl: 1200px,
+  xl: 1280px,
 ) !default;
 
 $min: (
@@ -33,10 +25,10 @@ $min: (
 );
 
 $max: (
-  sm: '(max-width:' map.get($bp_map, sm) - 0.2 ')',
-  md: '(max-width:' map.get($bp_map, md) - 0.2 ')',
-  lg: '(max-width:' map.get($bp_map, lg) - 0.2 ')',
-  xl: '(max-width:' map.get($bp_map, xl) - 0.2 ')',
+  sm: 'not screen and (min-width:' map.get($bp_map, sm) ')',
+  md: 'not screen and (min-width:' map.get($bp_map, md) ')',
+  lg: 'not screen and (min-width:' map.get($bp_map, lg) ')',
+  xl: 'not screen and (min-width:' map.get($bp_map, xl) ')',
 );
 
 /* -----------------------

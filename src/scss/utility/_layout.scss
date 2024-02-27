@@ -1,0 +1,116 @@
+@use 'sass:map';
+@use '../foundation/variables';
+
+/*********************************************************
+
+
+ Layout Utils
+
+
+**********************************************************/
+
+/****************************************
+
+          Container
+
+*****************************************/
+%u-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.u-container--lg {
+  @extend %u-container;
+  max-width: var(--content-size--lg);
+}
+.u-container--md {
+  @extend %u-container;
+  max-width: var(--content-size--md);
+}
+.u-container--sm {
+  @extend %u-container;
+  max-width: var(--content-size--sm);
+}
+/****************************************
+
+          Gutter
+
+*****************************************/
+.u-gutter--lg {
+  padding-left: var(--page-gutter--lg);
+  padding-right: var(--page-gutter--lg);
+}
+.u-gutter--sm {
+  padding-left: var(--page-gutter--sm);
+  padding-right: var(--page-gutter--sm);
+}
+
+/****************************************
+
+          Only All breakpoint
+          
+          u-only--min-md
+          u-only--max-sm
+
+*****************************************/
+@each $key in map.keys(variables.$min) {
+  .u-only--min-#{$key} {
+    display: none;
+    @media #{ map.get(variables.$min, #{$key})} {
+      display: block;
+    }
+  }
+}
+@each $key in map.keys(variables.$max) {
+  .u-only--max-#{$key} {
+    display: none;
+    @media #{ map.get(variables.$max, #{$key})} {
+      display: block;
+    }
+  }
+}
+/****************************************
+
+          Margin
+
+*****************************************/
+.u-mb--none {
+  margin-bottom: 0;
+}
+
+@for $var from 1 to 10 {
+  .u-mb--#{$var}en {
+    margin-bottom: #{$var * 0.5}em;
+  }
+  .u-mt--#{$var}en {
+    margin-top: #{$var * 0.5}em;
+  }
+}
+@for $var from 1 to 10 {
+  .u-mb--#{$var}em {
+    margin-bottom: #{$var}em;
+  }
+  .u-mt--#{$var}em {
+    margin-top: #{$var}em;
+  }
+}
+/****************************************
+
+          Padding
+
+*****************************************/
+.u-pb--none {
+  padding-bottom: 0;
+}
+.u-pt--none {
+  padding-top: 0;
+}
+
+@for $var from 1 to 10 {
+  .u-pb--#{$var}em {
+    padding-bottom: #{$var}em;
+  }
+  .u-pt--#{$var}em {
+    padding-top: #{$var}em;
+  }
+}
