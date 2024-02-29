@@ -1,0 +1,18 @@
+@use 'sass:map';
+@use '../foundation/variables';
+
+/*********************************************************
+
+
+404
+
+
+**********************************************************/
+
+.p-404 {
+  text-align: center;
+}
+.p-404__title {
+  margin-bottom: 3em;
+  font-weight: var(--font-main-weight-bold);
+}

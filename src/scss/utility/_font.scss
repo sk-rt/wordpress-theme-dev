@@ -39,3 +39,22 @@ Font Utils
 .u-align--justify {
   text-align: justify;
 }
+
+/****************************************
+
+          改行調整
+
+*****************************************/
+// wbrでの改行調整
+.u-auto-line-break {
+  overflow-wrap: anywhere;
+  word-break: keep-all;
+  text-wrap: balance;
+}
+// auto-phraseでの改行調整
+.u-auto-phrase {
+  @supports (word-break: auto-phrase) {
+    word-break: auto-phrase;
+    text-wrap: balance;
+  }
+}
