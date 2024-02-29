@@ -4,7 +4,7 @@ services:
     build: ./.docker-image/db
     container_name: "${PROJECT_NAME}-mysql"
     ports:
-      - "3306"
+      - "${DB_PORT}:3306"
     volumes:
       - ./.db-data:/var/lib/mysql
     environment:
@@ -20,17 +20,21 @@ services:
     build: ./.docker-image/wp
     container_name: "${PROJECT_NAME}-wordpress"
     ports:
-      - "${LOCAL_PORT}:80"
+      - "${WP_PORT}:80"
     links:
       - db
     volumes:
-      - ./public:/var/www/html${WP_INSTALL_DIR}wp-content:cached
+      - ./wp-content:/var/www/html${WP_INSTALL_DIR}wp-content:cached
     working_dir: /var/www/html${WP_INSTALL_DIR}
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
       WORDPRESS_DEBUG: 1
+      WORDPRESS_CONFIG_EXTRA: |
+        define('VITE_IS_DEVELOPMENT', true );
+        define('VITE_ENDPOINT', 'http://localhost:${VITE_DEV_PORT}/src/js/main.ts' );
+      
 volumes:
   .db-data:
   public:

@@ -1,0 +1,26 @@
+# --------------------------------------
+# For Wordpress Directory
+# --------------------------------------
+
+# WordPress core
+/wp-*.php
+/xmlrpc.php
+/index.php
+/.htaccess
+/license.txt
+/readme.html
+wp-admin/
+wp-includes/
+
+# wp-content
+/*
+!themes
+!.gitignore
+!plugins
+plugins/*
+themes/index.php
+# Required Plugin
+# !plugin-name
+!setup-theme
+# default themes
+themes/twenty*

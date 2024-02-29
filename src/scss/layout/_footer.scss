@@ -1,5 +1,5 @@
-@use "sass:map";
-@use "../foundation/variables";
+@use 'sass:map';
+@use '../foundation/variables';
 
 /*********************************************************
 
@@ -11,10 +11,10 @@
 
 .l-footer {
   position: relative;
-  text-align: center;
-  background-color: #fff;
-  color: variables.$c_base;
-  padding: 70px 5%;
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background-color: var(--color-text);
+  color: var(--color-background);
   @media #{map.get(variables.$max, md)} {
     padding: 40px 5%;
   }

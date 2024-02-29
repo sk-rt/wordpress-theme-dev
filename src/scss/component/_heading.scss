@@ -1,41 +1,42 @@
 @use 'sass:map';
 @use '../foundation/variables';
+@use '../utility/font';
 
 /*********************************************************
 
 
- Page
+Heading
 
 
 **********************************************************/
 /****************************************
 
-         Main
+         heading
 
 *****************************************/
-.l-page-main {
-  padding-top: 4em;
-  padding-bottom: 4em;
+.c-heading--lg {
+  font-size: 2.4rem;
+  margin-bottom: 1em;
+}
+.c-heading--md {
+  font-size: 1.6rem;
+  margin-bottom: 1em;
+}
+.c-heading--sm {
+  font-size: 1.2rem;
+  margin-bottom: 1em;
 }
 /****************************************
 
-         Header
+         featured font heading
 
 *****************************************/
-.l-page-header {
-  padding-bottom: 4em;
-}
-.l-page-header__title {
-  font-size: 2rem;
-}
-/****************************************
 
-         Content
-
-*****************************************/
-.l-page-content {
-  padding-bottom: 7em;
+.c-heading-featured {
+  @extend .u-font-featured;
+  font-size: 2.5rem;
+  margin-bottom: 1em;
   @media #{map.get(variables.$max, md)} {
-    padding-bottom: 5em;
+    font-size: 2rem;
   }
 }
