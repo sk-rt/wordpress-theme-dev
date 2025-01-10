@@ -2,7 +2,6 @@
 
 namespace Theme\Controllers;
 
-
 /***************************************************************
 
 Frontend Assets

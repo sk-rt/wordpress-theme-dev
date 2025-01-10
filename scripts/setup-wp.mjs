@@ -2,8 +2,10 @@
  * WordPress Setup
  */
 
-import { execSync } from 'node:child_process';
 import dotenv from 'dotenv';
+import { execWpCli } from './lib/exec.mjs';
+import { installComposer } from './composer-install.mjs';
+
 dotenv.config();
 
 const wpOptions = {
@@ -15,23 +17,7 @@ const wpOptions = {
   default_ping_status: 'closed',
   default_comment_status: 'closed',
 };
-
-const execWp = (command = '') => {
-  try {
-    const result = execSync(`docker exec ${process.env.PROJECT_NAME}-wordpress ${command}`);
-    console.info(result.toString());
-    return result;
-  } catch (error) {
-    console.error(`[ERROR]`, error.toString());
-  }
-};
-const execWpCli = (command = '') => {
-  try {
-    return execWp(`env sudo --preserve-env -u www-data wp ${command}`);
-  } catch (error) {
-    console.error(`[ERROR]`, error.toString());
-  }
-};
+installComposer();
 {
   // install
   const result = execWpCli(`core install \

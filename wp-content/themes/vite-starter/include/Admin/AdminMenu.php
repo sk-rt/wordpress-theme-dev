@@ -8,7 +8,7 @@ class AdminMenu
     protected function __construct()
     {
         add_filter('admin_menu', [$this, 'removeAdminMenu'], 10, 1);
-        add_filter('admin_bar_menu',  [$this, 'removeAdminBarMenu'], 99, 1);
+        add_filter('admin_bar_menu', [$this, 'removeAdminBarMenu'], 99, 1);
     }
     public static function init()
     {

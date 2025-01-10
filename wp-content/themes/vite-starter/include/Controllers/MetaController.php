@@ -19,31 +19,38 @@ class MetaController
     /**
      * Headに追加
      */
-    function head()
+    public function head()
     {
         $description = $this->getPageDescription();
         $ogImage = $this->getOgImageUrl();
         $canonical = $this->getCanonicalUrl();
-?>
-        <meta name="description" content="<?php echo $description; ?>">
-        <meta property="og:type" content="<?php if (is_front_page()) : ?>website<?php else : ?>article<?php endif; ?>">
-        <meta property="og:url" content="<?php echo $canonical; ?>">
-        <meta property="og:title" content="<?php echo wp_get_document_title(); ?>">
-        <meta property="og:description" content="<?php echo $description; ?>">
-        <meta property="og:image" content="<?php echo $ogImage; ?>">
-        <meta property="og:site_name" content="<?php bloginfo('name'); ?>">
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="<?php echo wp_get_document_title(); ?>">
-        <meta itemprop="image" content="<?php echo $ogImage; ?>">
-        <link rel="icon" type="image/png" sizes="48x48" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
-        <link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
-        <link rel="canonical" href="<?php echo $canonical; ?>">
+        ?>
+<meta name="description" content="<?php echo $description; ?>">
+<meta property="og:type"
+    content="<?php if (is_front_page()) : ?>website<?php else : ?>article<?php endif; ?>">
+<meta property="og:url" content="<?php echo $canonical; ?>">
+<meta property="og:title"
+    content="<?php echo wp_get_document_title(); ?>">
+<meta property="og:description"
+    content="<?php echo $description; ?>">
+<meta property="og:image" content="<?php echo $ogImage; ?>">
+<meta property="og:site_name"
+    content="<?php bloginfo('name'); ?>">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title"
+    content="<?php echo wp_get_document_title(); ?>">
+<meta itemprop="image" content="<?php echo $ogImage; ?>">
+<link rel="icon" type="image/png" sizes="48x48"
+    href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
+<link rel="shortcut icon"
+    href="<?php echo get_template_directory_uri(); ?>/site-icons/favicon.png">
+<link rel="canonical" href="<?php echo $canonical; ?>">
 <?php
     }
     /**
      * Description 取得
      */
-    function getPageDescription()
+    public function getPageDescription()
     {
         if (is_front_page()) {
             return get_bloginfo('description');
@@ -64,7 +71,7 @@ class MetaController
     /**
      * OGP画像取得
      */
-    function getOgImageUrl()
+    public function getOgImageUrl()
     {
         $def_image = get_template_directory_uri() . '/site-icons/ogp.png';
         if (is_single() || is_page()) {
@@ -80,8 +87,9 @@ class MetaController
     /**
      * Cannonical URL取得
      */
-    function getCanonicalUrl()
+    public function getCanonicalUrl()
     {
         return esc_html((empty($_SERVER['HTTPS']) ? 'http://' : 'https://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
     }
 }
+?>

@@ -4,7 +4,7 @@ namespace Theme\PostTypes;
 
 class Product
 {
-    static $postTypeName = 'product';
+    public static $postTypeName = 'product';
     protected static $instance;
     protected function __construct()
     {
@@ -27,7 +27,7 @@ class Product
          */
         register_post_type(
             self::$postTypeName,
-            array(
+            [
                 'label' => $postTypeLabe,
                 'labels' => [
                     'name' => $postTypeLabe . '',
@@ -46,7 +46,7 @@ class Product
                 'menu_position' => 5,
                 'show_in_rest' => false,
                 'rewrite' => ['with_front' => false],
-            )
+            ]
         );
         register_taxonomy(
             'genre',
@@ -59,10 +59,10 @@ class Product
                 'show_admin_column' => true,
                 'description' => 'ジャンル',
                 'hierarchical' => true,
-                'rewrite' => array(
+                'rewrite' => [
                     'with_front' => true,
                     'hierarchical' => false,
-                ),
+                ],
             ]
         );
     }
