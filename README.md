@@ -5,7 +5,7 @@
 
 ## 必須要件
 - Docker Compose
-- node.js ^20
+- node.js ^22
 
 ## セットアップ
 
@@ -24,21 +24,22 @@ npm install
 
 ### 4. WordPressのインストール、初期設定  
 
-.envの設定を元にWordPressのインストールと、言語のダウンロード、テーマの設定、オプションの更新を行います。
+.envの設定を元にWordPressのインストールと、composerインストール、言語のダウンロード、テーマの設定、オプションの更新を行います。
     
 ```sh
 npm run setup:wp-theme
 ```
 
 
+
 ---
 
-## ローカルサーバー
+## ローカル開発環境
 
 ### 開発用サーバー（ホットリロード）
 
 CSS/JSの修正にはこちらを使用してください。  
-http://localhost:8282 に開発サーバー、別途Viteのホットリロードサーバーがが立ち上がります。
+`http://localhost:${WP_PORT}` に開発サーバー、別途Viteのホットリロードサーバーがが立ち上がります。
 
 ```sh
 npm run dev 
@@ -48,7 +49,7 @@ npm run dev
 
 フロント(CSS/JS)のビルドと、プレビュー用Dockerが立ち上がります。  
 CSS/JSはビルド済のものを参照します。  
-URLは上記と同じ http://localhost:8282 になります。
+URLは上記と同じになります。
 
 ```sh
 npm run preview
