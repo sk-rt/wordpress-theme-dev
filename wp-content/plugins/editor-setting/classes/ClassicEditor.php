@@ -1,29 +1,34 @@
 <?php
 
-namespace Theme\Editor;
-
-use Theme\Functions\TemplateTags;
+namespace EditorSetting\classes;
 
 class ClassicEditor
 {
-    protected static $instance;
-    protected function __construct()
+    private static $instance = null;
+
+    private function __construct()
     {
-        require_once __DIR__ . '/DisabledBlockEditor.php';
-        DisabledBlockEditor::init();
+
         add_filter('quicktags_settings', [$this, 'cutomizeHtmlButtons'], 10, 1);
-        add_filter('tiny_mce_before_init',  [$this, 'updateTinymceSetting'], 10, 1);
+        add_filter('tiny_mce_before_init', [$this, 'updateTinymceSetting'], 10, 1);
         add_action('wp_terms_checklist_args', [$this, 'categoryTermsChecklistNoTop'], 10, 1);
+        add_action('after_setup_theme', [$this, 'addEditorStyles'], 10);
+        add_filter('embed_handler_html', [$this, 'formatVideoEmbed'], 10, 1);
+        add_filter('embed_oembed_html', [$this, 'formatVideoEmbed'], 10, 1);
+        add_filter('wp_kses_allowed_html', [$this, 'addAllowedHtml'], 10, 1);
+        add_filter('use_default_gallery_style', '__return_false');
+
 
         $this->cutomizeTinymceButtons();
-        $this->defineShortCode();
         $this->removeRichEditor();
     }
-    public static function init()
+    public static function getInstance(): self
     {
+        $class = get_called_class();
         if (!isset(self::$instance)) {
-            self::$instance = new self();
+            self::$instance = new $class;
         }
+
         return self::$instance;
     }
     /**
@@ -36,8 +41,6 @@ class ClassicEditor
         remove_meta_box('commentsdiv', 'post', 'normal'); // コメント
         remove_meta_box('trackbacksdiv', 'post', 'normal'); // トラックバック
         remove_meta_box('slugdiv', 'post', 'normal'); // スラッグ
-        remove_meta_box('postimagediv', 'post', 'normal'); // スラッグ
-        // remove_meta_box('tagsdiv-post_tag', 'post', 'side'); // 投稿のタグ
     }
 
     /**
@@ -46,11 +49,11 @@ class ClassicEditor
      *  @param   array  $settings  The array of editor settings
      *  @return  array             The modified edit settings
      */
-    function updateTinymceSetting($init_array)
+    public function updateTinymceSetting($init_array)
     {
         $init_array['paste_remove_styles'] = true;
         $init_array['paste_remove_spans'] = true;
-        $init_array['block_formats'] = __('Paragraph') . "=p; " . __('Heading 2') . "=h2; " . __('Heading 3') . "=h3;";
+        $init_array['block_formats'] = __('Paragraph') . '=p; ' . __('Heading 2') . '=h2; ' . __('Heading 3') . '=h3;';
         return $init_array;
     }
     /**
@@ -68,6 +71,7 @@ class ClassicEditor
                 'unlink',
                 'bullist',
                 'numlist',
+                'hr',
             ];
         }, 10, 1);
         add_filter('mce_buttons_2', '__return_empty_array');
@@ -79,7 +83,7 @@ class ClassicEditor
     public function cutomizeHtmlButtons($qt_init)
     {
         // 削除するボタンを指定
-        $remove = array(
+        $remove = [
             // 'strong', // b
             'em', // i
             // 'link',   // link
@@ -94,7 +98,7 @@ class ClassicEditor
             'more', // more
             // 'close',  // タグを閉じる
             // 'dfw',    // 集中執筆モード
-        );
+        ];
         // ボタンの一覧を文字列から配列に分割
         $qt_init['buttons'] = explode(',', $qt_init['buttons']);
         // 指定したボタンを削除
@@ -108,7 +112,7 @@ class ClassicEditor
      */
     public function removeRichEditor()
     {
-        $html_only_pos_types = ['page'];
+        $html_only_pos_types = ['page', 'mw-wp-form'];
 
         /**
          * ビジュアルエディタボタンを削除
@@ -127,7 +131,6 @@ class ClassicEditor
          */
         add_filter('the_content', function ($content) use ($html_only_pos_types) {
             global $post;
-            $remove_filter = false;
             $post_type = get_post_type($post->ID);
             if (in_array($post_type, $html_only_pos_types)) {
                 remove_filter('the_content', 'wpautop');
@@ -139,42 +142,26 @@ class ClassicEditor
     /**
      * カテゴリーの順番が変わるの機能を削除
      */
-    function categoryTermsChecklistNoTop($args)
+    public function categoryTermsChecklistNoTop($args)
     {
         $args['checked_ontop'] = false;
         return $args;
     }
     /**
-     * ショートコードの定義
+     * TODO: これは動作してない
      */
-    public function defineShortCode()
+    public function addEditorStyles()
     {
-        /**
-         * [themeUrl]
-         */
-        add_shortcode('themeUrl', function () {
-            return get_template_directory_uri() . '/';
-        });
-        /**
-         * [homeUrl]
-         */
-        add_shortcode('homeUrl', function () {
-            return home_url('/');
-        });
+        add_editor_style('admin-assets/editor-style.css');
+    }
+    /**
+     * srcsetのショートコードが展開される様に
+     */
+    public function addAllowedHtml($tags)
+    {
+        $tags['img']['srcset'] = true;
+        $tags['source']['srcset'] = true;
 
-        /**
-         * WPの `get_template_part()` ショートコード
-         * [template temp="temp-path"]
-         */
-        add_shortcode('template', function ($atts) {
-            $atts = shortcode_atts(
-                [
-                    'temp' => '',
-                ],
-                $atts
-            );
-            $temp_path = 'template-parts/' . esc_attr($atts['temp']);
-            return TemplateTags::getTemplatePartString($temp_path);
-        });
+        return $tags;
     }
 }
