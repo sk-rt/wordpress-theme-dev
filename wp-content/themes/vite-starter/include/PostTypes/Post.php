@@ -4,6 +4,8 @@ namespace Theme\PostTypes;
 
 class Post
 {
+    public static $postTypeName = 'post';
+    public static $postTypeLabel = 'News';
     protected static $instance;
     protected function __construct()
     {
@@ -47,15 +49,14 @@ class Post
      */
     public function changePostLabel($labels)
     {
-        $post_label = __('News');
         $initial_label = __(get_post_type_object('post')->label);
         $initial_label_singular = __(get_post_type_object('post')->labels->singular_name);
         foreach ($labels as $key => &$label) {
             if (!$label) {
                 continue;
             }
-            $label = str_replace($initial_label, $post_label, $label);
-            $label = str_replace($initial_label_singular, $post_label, $label);
+            $label = str_replace($initial_label, self::$postTypeLabel, $label);
+            $label = str_replace($initial_label_singular, self::$postTypeLabel, $label);
         }
         return $labels;
     }

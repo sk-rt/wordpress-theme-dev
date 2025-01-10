@@ -2,12 +2,6 @@
 
 namespace Theme\Settings;
 
-/***************************************************************
-
-General Setting
-
- ***************************************************************/
-
 class GlobalSettings
 {
     private static $instance;

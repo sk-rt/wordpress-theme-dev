@@ -5,6 +5,7 @@ namespace Theme\PostTypes;
 class Product
 {
     public static $postTypeName = 'product';
+    public static $postTypeLabel = '商品';
     protected static $instance;
     protected function __construct()
     {
@@ -19,7 +20,7 @@ class Product
     }
     public function register()
     {
-        $postTypeLabe = '商品';
+      
         /**
          * @see https://developer.wordpress.org/reference/functions/register_post_type/
          * @see https://developer.wordpress.org/reference/functions/get_post_type_labels/
@@ -28,13 +29,13 @@ class Product
         register_post_type(
             self::$postTypeName,
             [
-                'label' => $postTypeLabe,
+                'label' => self::$postTypeLabel,
                 'labels' => [
-                    'name' => $postTypeLabe . '',
-                    'all_items' => $postTypeLabe . '一覧',
-                    'add_new' => $postTypeLabe . 'を追加',
-                    'add_new_item' => $postTypeLabe . 'を追加',
-                    'edit_item' => $postTypeLabe . 'の編集',
+                    'name' => self::$postTypeLabel . '',
+                    'all_items' => self::$postTypeLabel . '一覧',
+                    'add_new' => self::$postTypeLabel . 'を追加',
+                    'add_new_item' => self::$postTypeLabel . 'を追加',
+                    'edit_item' => self::$postTypeLabel . 'の編集',
                 ],
                 'public' => true,
                 'show_ui' => true,

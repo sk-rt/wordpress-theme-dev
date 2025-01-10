@@ -49,6 +49,5 @@ class MetaController
         <link rel="canonical" href="<?php echo $canonical; ?>">
 <?php
     }
-
 }
 ?>
