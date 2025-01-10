@@ -15,7 +15,6 @@ require_once __DIR__ . '/include/PostTypes/Product.php';
 require_once __DIR__ . '/include/Functions/TemplateTags.php';
 require_once __DIR__ . '/include/Functions/Logger.php';
 require_once __DIR__ . '/include/Admin/AdminMenu.php';
-require_once __DIR__ . '/include/CustomFields/Loader.php';
 
 \Theme\Settings\GlobalSettings::init();
 \Theme\Controllers\CommonController::init();
@@ -24,4 +23,3 @@ require_once __DIR__ . '/include/CustomFields/Loader.php';
 \Theme\PostTypes\Post::init();
 \Theme\PostTypes\Product::init();
 \Theme\Admin\AdminMenu::init();
-\Theme\CustomFields\Loader::init();

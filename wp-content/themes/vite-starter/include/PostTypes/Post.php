@@ -9,6 +9,7 @@ class Post
     {
         add_action('post_type_labels_post', [$this, 'changePostLabel'], 10, 1);
         add_action('init', [$this, 'removeDefaultTax']);
+        require_once __DIR__ . '/CustomFields/postMeta.php';
     }
     public static function init()
     {
@@ -46,7 +47,7 @@ class Post
      */
     public function changePostLabel($labels)
     {
-        $post_label = __("News");
+        $post_label = __('News');
         $initial_label = __(get_post_type_object('post')->label);
         $initial_label_singular = __(get_post_type_object('post')->labels->singular_name);
         foreach ($labels as $key => &$label) {
