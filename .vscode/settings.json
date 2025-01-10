@@ -12,9 +12,27 @@
   "[yml]": {
     "editor.formatOnSave": true
   },
+  "[javascript][typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[php]": {
+    // "editor.defaultFormatter": "bmewburn.vscode-intelephense-client",
+    "editor.defaultFormatter": "junstyle.php-cs-fixer",
+    "editor.formatOnSave": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.tslint": "explicit",
     "source.fixAll": "explicit"
+  },
+  "intelephense.compatibility.preferPsalmPhpstanPrefixedAnnotations": true,
+  "php-cs-fixer.formatHtml": true,
+  "php-cs-fixer.onsave": true,
+  "php-cs-fixer.rules": {
+    "@PSR2": true, 
+    "no_unused_imports": true,
+    "array_syntax": { "syntax": "short" },
+    "single_quote": true
   },
 }

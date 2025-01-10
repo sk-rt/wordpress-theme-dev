@@ -4,12 +4,13 @@ use Theme\Functions\TemplateTags;
 ?>
 
 <div class="p-top-main">
-    <?php if (have_posts()) :  while (have_posts()) : the_post(); ?>
+    <?php if (have_posts()) : ?>
+        <?php while (have_posts()) : the_post(); ?>
             <section class="p-top-content">
                 <?php the_content() ?>
             </section>
-    <?php endwhile;
-    endif; ?>
+        <?php endwhile; ?>
+    <?php endif; ?>
     <?php
 
     /* News */

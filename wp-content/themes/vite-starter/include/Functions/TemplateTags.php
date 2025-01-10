@@ -9,7 +9,7 @@ class TemplateTags
      * WPの `get_template_part()` を出力せずにhtmlで返す
      * @param $temp_path string テンプレートパス}
      */
-    static function getTemplatePartString(string $temp_path): string
+    public static function getTemplatePartString(string $temp_path): string
     {
         ob_start();
         $view = get_template_part($temp_path);
@@ -22,7 +22,7 @@ class TemplateTags
      * @param string $path
      * @param array $args
      */
-    static function includeComponent(string $path, $args = [])
+    public static function includeComponent(string $path, $args = [])
     {
         $path = 'template-parts/' . $path;
         get_template_part($path, null, $args);
@@ -30,7 +30,7 @@ class TemplateTags
     /**
      * コンポーネントのPropsを取得
      */
-    static function getArg(string $name, mixed $default, mixed $args)
+    public static function getArg(string $name, mixed $default, mixed $args)
     {
         return isset($args[$name]) ? $args[$name] : $default;
     }

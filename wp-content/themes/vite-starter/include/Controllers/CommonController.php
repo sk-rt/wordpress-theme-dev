@@ -20,7 +20,7 @@ class CommonController
     /**
      * メインクエリの変更
      */
-    function overrideMainQuery($query)
+    public function overrideMainQuery($query)
     {
         if (is_admin() && !$query->is_main_query()) {
             return;
@@ -30,7 +30,7 @@ class CommonController
     /**
      * 不要なページを404
      */
-    function invalidatePage()
+    public function invalidatePage()
     {
         global $wp_query;
         if (

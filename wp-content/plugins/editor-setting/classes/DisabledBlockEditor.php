@@ -1,22 +1,34 @@
 <?php
 
-namespace Theme\Editor;
+namespace EditorSetting\classes;
 
 class DisabledBlockEditor
 {
-    protected static $instance;
-    protected function __construct()
+    private static $instance = null;
+    private $ignore_post_types = [];
+
+    private function __construct($ignore_post_types = [])
     {
-        $this->removeGutenbergHooks();
-        add_action('wp_enqueue_scripts', [$this, 'dequeueGutenbergAssets'], 10);
-        add_filter('use_block_editor_for_post_type', '__return_false', 100);
-    }
-    public static function init()
-    {
-        if (!isset(self::$instance)) {
-            self::$instance = new self();
+        $this->ignore_post_types = $ignore_post_types;
+        if (!is_admin()) {
+            $this->removeGutenbergHooks();
         }
+        add_action('wp_enqueue_scripts', [$this, 'dequeueGutenbergAssets'], 10);
+        add_filter('use_block_editor_for_post_type', [$this, 'setIgnorePostTypes'], 100, 2);
+    }
+    public static function getInstance($ignore_post_types = []): self
+    {
+        $class = get_called_class();
+        if (!isset(self::$instance)) {
+            self::$instance = new $class($ignore_post_types);
+        }
+
         return self::$instance;
+    }
+    public function setIgnorePostTypes($use_block_editor, string $post_type)
+    {
+
+        return in_array($post_type, $this->ignore_post_types);
     }
     /**
      * Remove Gutenberg Hooks
@@ -24,6 +36,8 @@ class DisabledBlockEditor
      */
     public function removeGutenbergHooks()
     {
+        // \error_log(var_export(get_post_type()) . "\n", 3, \get_template_directory() . '/log/debug.log');
+
         remove_action('admin_menu', 'gutenberg_menu');
         remove_action('admin_init', 'gutenberg_redirect_demo');
         // Gutenberg 5.3+
@@ -33,7 +47,7 @@ class DisabledBlockEditor
         remove_action('rest_api_init', 'gutenberg_register_rest_widget_updater_routes');
         remove_action('admin_print_styles', 'gutenberg_block_editor_admin_print_styles');
         remove_action('admin_print_scripts', 'gutenberg_block_editor_admin_print_scripts');
-        remove_action('admin_print_footer_scripts', 'gutenberg_block_editor_admin_print_footer_scripts');
+        remove_action('admin_print_footer_scripts', 'GUTENBERG_BLOCK_EDITOR_ADMIN_PRINT_FOOTER_SCRIPTS');
         remove_action('admin_footer', 'gutenberg_block_editor_admin_footer');
         remove_action('admin_enqueue_scripts', 'gutenberg_widgets_init');
         remove_action('admin_notices', 'gutenberg_build_files_notice');
@@ -72,6 +86,12 @@ class DisabledBlockEditor
      */
     public function dequeueGutenbergAssets()
     {
+        if (is_admin()) {
+            return;
+        }
+        if (is_singular($this->ignore_post_types)) {
+            return;
+        }
         wp_dequeue_style('wp-block-library');
         wp_dequeue_style('wp-block-library-theme');
         wp_dequeue_style('global-styles');

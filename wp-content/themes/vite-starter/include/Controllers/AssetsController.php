@@ -8,6 +8,7 @@ Frontend Assets
 
  ***************************************************************/
 
+
 class AssetsController
 {
     private const PRODUCTION_HANDLE = 'app';
@@ -16,6 +17,12 @@ class AssetsController
     private static $instance;
     private function __construct()
     {
+        if (!defined('VITE_IS_DEVELOPMENT')) {
+            define('VITE_IS_DEVELOPMENT', false);
+        }
+        if (!defined('VITE_ENDPOINT')) {
+            define('VITE_ENDPOINT', '');
+        }
         $this->is_development = defined('VITE_IS_DEVELOPMENT') && VITE_IS_DEVELOPMENT === true && defined('VITE_ENDPOINT');
 
         if ($this->is_development) {

@@ -6,17 +6,17 @@
         </h1>
     </div>
     <div class="p-404 l-page-content u-gutter--lg">
-    <div class="u-container--sm">
-        <p class="p-404__title">
-            ページが見つかりませんでした。
-        </p>
-        <div class="p-404__content">
-            <a href="<?php echo home_url() ?>/" class="c-button">
-                Top
-            </a>
+        <div class="u-container--sm">
+            <p class="p-404__title">
+                ページが見つかりませんでした。
+            </p>
+            <div class="p-404__content">
+                <a href="<?php echo home_url() ?>/" class="c-button">
+                    Top
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 <?php get_footer(); ?>

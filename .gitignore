@@ -13,3 +13,6 @@ bower_components
 .env
 .env.*
 !.env.example
+.wp
+
+vendor

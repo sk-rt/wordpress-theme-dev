@@ -5,7 +5,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import sharp from 'sharp';
-import { globSync } from 'glob';
+import { globSync } from 'node:fs';
 import path from 'path';
 import { mkdir, cp, writeFile, readFile } from 'node:fs/promises';
 import { optimize, loadConfig } from 'svgo';
@@ -19,7 +19,6 @@ const GET_ENCODER_FROM_EXTENSION = {
   png: 'png',
 };
 const theme = process.env.WP_THEME_NAME;
-
 
 // 変換オプション（参考： https://sharp.pixelplumbing.com/api-output）
 const ENCODER_OPTIONS = {
