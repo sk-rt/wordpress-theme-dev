@@ -22,6 +22,7 @@
     "build:frontend": "vite build --mode development",
     "dist:wp-theme": "node ./scripts/dist-wp-theme.mjs",
     "setup:wp-theme": "node ./scripts/setup-wp.mjs",
+    "cp:wp-core": "docker cp `docker-compose ps -q wordpress`:/var/www/html/wp-includes/ ./.wp/wp-includes",
     "image-optimize": "node ./scripts/image-optimize.mjs",
     "lint": "eslint \"**/*\"",
     "format": "prettier src --write"
