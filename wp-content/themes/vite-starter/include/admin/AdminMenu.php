@@ -22,9 +22,9 @@ class AdminMenu
      */
     public function removeAdminMenu($var)
     {
-        remove_menu_page('edit-comments.php'); // コメント削除
+        \remove_menu_page('edit-comments.php'); // コメント削除
         $customizer_url = add_query_arg('return', urlencode(remove_query_arg(wp_removable_query_args(), wp_unslash($_SERVER['REQUEST_URI']))), 'customize.php');
-        remove_submenu_page('themes.php', $customizer_url); // カスタマイズ
+        \remove_submenu_page('themes.php', $customizer_url); // カスタマイズ
     }
     /**
      * Admin barから削除

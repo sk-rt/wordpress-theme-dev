@@ -3,6 +3,7 @@ $heading_tag = is_front_page() ? 'h1' : 'p';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
    <?php get_template_part('template-parts/common/head'); ?>
 </head>

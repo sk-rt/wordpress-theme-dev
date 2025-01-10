@@ -23,7 +23,7 @@ class Post
     public function removeDefaultTax()
     {
         global $wp_taxonomies;
-      
+
         if (!empty($wp_taxonomies['post_tag']->object_type)) {
             foreach ($wp_taxonomies['post_tag']->object_type as $i => $object_type) {
                 if ($object_type == 'post') {
@@ -31,7 +31,7 @@ class Post
                 }
             }
         }
-       
+
         if (!empty($wp_taxonomies['category']->object_type)) {
             foreach ($wp_taxonomies['category']->object_type as $i => $object_type) {
                 if ($object_type == 'post') {

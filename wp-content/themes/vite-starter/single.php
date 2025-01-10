@@ -1,4 +1,5 @@
 <?php
+
 use Theme\Functions\TemplateTags;
 ?>
 <?php get_header(); ?>

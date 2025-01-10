@@ -1,5 +1,6 @@
 <article id="post-<?php the_ID(); ?>" class="c-card-item">
-    <a href="<?php the_permalink(); ?>" class="c-card-item__container">
+    <a href="<?php the_permalink(); ?>"
+        class="c-card-item__container">
         <div class="c-card-item__thumb">
             <div class="c-card-item__thumb__inner">
                 <?php the_post_thumbnail('post-thumbnail-lg', ['alt' => get_the_title(), 'loading' => 'lazy']); ?>
@@ -15,13 +16,12 @@
             <p class="c-card-item__terms">
                 <?php
                 $terms = get_the_terms($post->ID, 'category');
-                if ($terms && !is_wp_error($terms)) :
-                    foreach ($terms as $term) :
-                ?>
+                if ($terms && !is_wp_error($terms)) : ?>
+                    <?php foreach ($terms as $term) : ?>
                         <span class="c-card-item__term">
                             <?php echo $term->name; ?></span>
-                <?php endforeach;
-                endif; ?>
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </p>
         </div>
     </a>

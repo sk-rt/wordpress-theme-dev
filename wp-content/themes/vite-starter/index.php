@@ -34,6 +34,5 @@ if (is_archive()) {
             endif; ?>
         </div>
     </div>
-
 </main>
 <?php get_footer(); ?>
