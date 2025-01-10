@@ -13,6 +13,7 @@ define('EDITOR_SETTING_USE_BLOCK_EDITOR', false);
 \Theme\Controllers\CommonController::init();
 \Theme\Controllers\AssetsController::init();
 \Theme\Controllers\MetaController::init();
+\Theme\Controllers\PostContentController::init();
 // Custom Post
 \Theme\PostTypes\Post::init();
 \Theme\PostTypes\Product::init();

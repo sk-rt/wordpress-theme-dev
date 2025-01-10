@@ -16,20 +16,20 @@ if (is_archive()) {
             <?php echo esc_html($post_type_name); ?>
         </h1>
         <?php if ($archive_title) : ?>
-            <p class="l-page-header__sub-title">
-                <?php echo $archive_title; ?>
-            </p>
+        <p class="l-page-header__sub-title">
+            <?php echo $archive_title; ?>
+        </p>
         <?php endif; ?>
     </div>
     <div class="l-page-content u-gutter--lg">
         <div class="u-container--md">
             <?php if (have_posts()) : ?>
-                <div class="c-postlist">
-                    <?php while (have_posts()) : the_post();
-                        get_template_part('template-parts/loop/' . $post_type);
-                    endwhile; ?>
-                </div>
-                <?php get_template_part('template-parts/common/pager'); ?>
+            <div class="c-postlist">
+                <?php while (have_posts()) : the_post();
+                    get_template_part('template-parts/loop/' . $post_type);
+                endwhile; ?>
+            </div>
+            <?php get_template_part('template-parts/common/pager'); ?>
             <?php else : get_template_part('template-parts/content/none');
             endif; ?>
         </div>

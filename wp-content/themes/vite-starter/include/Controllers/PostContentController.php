@@ -1,6 +1,6 @@
 <?php
 
-namespace Theme\Editor;
+namespace Theme\Controllers;
 
 use Theme\Functions\TemplateTags;
 

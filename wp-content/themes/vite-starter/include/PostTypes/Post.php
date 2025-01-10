@@ -35,13 +35,13 @@ class Post
             }
         }
 
-        if (!empty($wp_taxonomies['category']->object_type)) {
-            foreach ($wp_taxonomies['category']->object_type as $i => $object_type) {
-                if ($object_type == 'post') {
-                    unset($wp_taxonomies['category']->object_type[$i]);
-                }
-            }
-        }
+        // if (!empty($wp_taxonomies['category']->object_type)) {
+        //     foreach ($wp_taxonomies['category']->object_type as $i => $object_type) {
+        //         if ($object_type == 'post') {
+        //             unset($wp_taxonomies['category']->object_type[$i]);
+        //         }
+        //     }
+        // }
         return true;
     }
     /**
