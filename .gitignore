@@ -13,6 +13,7 @@ bower_components
 .env
 .env.*
 !.env.example
-.wp
+.wp/*
+!.wp/.gitkeep
 
 vendor
