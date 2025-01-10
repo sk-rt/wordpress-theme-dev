@@ -13,7 +13,7 @@
     "start": "npm-run-all -p watch:*",
     "dev": "npm-run-all dev:serve start",
     "build": "npm-run-all build:frontend",
-    "dist": "npm-run-all --serial dist:wp-theme dist:frontend image-optimize",
+    "dist": "npm-run-all --serial lint dist:wp-theme dist:frontend image-optimize",
     "preview": "npm-run-all -p build preview:serve",
     "dev:serve": "docker compose up -d",
     "preview:serve": "docker compose -f docker-compose.yml -f docker-compose.preview.yml up -d && source .env && open http://localhost:$WP_PORT",
@@ -23,13 +23,12 @@
     "dist:wp-theme": "node ./scripts/dist-wp-theme.mjs",
     "setup:wp-theme": "node ./scripts/setup-wp.mjs",
     "image-optimize": "node ./scripts/image-optimize.mjs",
-    "lint": "eslint src/**/*.ts",
+    "lint": "eslint \"**/*\"",
     "format": "prettier src --write"
   },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
     "@markuplint/php-parser": "^4.6.14",
-    "@typescript-eslint/eslint-plugin": "8.19.1",
-    "@typescript-eslint/parser": "^8.19.1",
     "autoprefixer": "^10.4.20",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.7",
@@ -44,6 +43,7 @@
     "sharp": "^0.33.5",
     "svgo": "^3.3.2",
     "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
     "vite": "^6.0.7",
     "vite-plugin-live-reload": "^3.0.4",
     "vite-plugin-svg-sprite": "^0.6.1"
