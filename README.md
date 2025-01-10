@@ -71,3 +71,16 @@ docker compose stop
 ```sh
 npm run dist
 ```
+
+---
+
+## WordPressの管理画面での設定
+
+管理画面は /wp-admin/ にアクセスしてログインしてください。
+User: admin
+Password: admin
+
+### 必須プラグインの有効化
+
+`Setup Theme Plugin` を有効化してください。
+必要なカテゴリ、ページ、オプションなどが生成されます。
