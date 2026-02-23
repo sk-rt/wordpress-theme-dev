@@ -1,8 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { rmSync } from 'node:fs';
+import { rmSync, globSync } from 'node:fs';
 import { cp } from 'node:fs/promises';
-import { globSync } from 'glob';
 import dotenv from 'dotenv';
 dotenv.config();
 

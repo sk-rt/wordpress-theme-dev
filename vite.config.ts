@@ -9,7 +9,7 @@ import { rmSync } from 'node:fs';
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   const themePath = `themes/${env.WP_THEME_NAME}`;
-  const base = mode === 'development' ? './' : path.join('/wp-content', themePath); 
+  const base = mode === 'development' ? './' : path.join('/wp-content', themePath);
 
   const outDir =
     mode === 'development' ? path.join('./wp-content', themePath) : path.join('./dist', themePath);

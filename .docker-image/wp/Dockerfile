@@ -1,7 +1,7 @@
 # *****************************
 # WordPress公式imageにwp-cliを追加
 # *****************************
-FROM wordpress:php8.2-apache
+FROM wordpress:php8.3-apache
 # 必要なツール郡をインストール
 RUN apt-get update
 RUN apt-get install -y \
