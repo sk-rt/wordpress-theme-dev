@@ -22,6 +22,6 @@ themes/index.php
 # Required Plugin
 # !plugin-name
 !setup-theme
-!editor-setting
+!custom-editor
 # default themes
 themes/twenty*
