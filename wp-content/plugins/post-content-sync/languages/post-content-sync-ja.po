@@ -1,0 +1,179 @@
+# Japanese translation for Post Content Sync
+# Copyright (C) 2024
+# This file is distributed under the same license as the Post Content Sync package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Post Content Sync 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-14 00:00+0900\n"
+"PO-Revision-Date: 2026-02-14 00:00+0900\n"
+"Last-Translator: \n"
+"Language-Team: Japanese\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/Admin/AdminPage.php:37
+#: src/Admin/AdminPage.php:38
+msgid "Content Sync"
+msgstr "コンテンツ同期"
+
+#: src/Admin/AdminPage.php:82
+msgid "Syncing..."
+msgstr "同期中..."
+
+#: src/Admin/AdminPage.php:83
+msgid "Sync completed successfully!"
+msgstr "同期が完了しました！"
+
+#: src/Admin/AdminPage.php:84
+msgid "Sync failed. Please check the logs."
+msgstr "同期に失敗しました。ログを確認してください。"
+
+#: src/Admin/AdminPage.php:85
+msgid "Are you sure you want to sync all files?"
+msgstr "すべてのファイルを同期してもよろしいですか？"
+
+#: src/Admin/AdminPage.php:100
+msgid "You do not have sufficient permissions to access this page."
+msgstr "このページにアクセスする権限がありません。"
+
+#: src/Admin/AdminPage.php:162
+msgid "Error:"
+msgstr "エラー："
+
+#: src/Admin/AdminPage.php:168
+msgid "Configuration"
+msgstr "設定"
+
+#: src/Admin/AdminPage.php:171
+msgid "Base Directory"
+msgstr "ベースディレクトリ"
+
+#: src/Admin/AdminPage.php:175
+msgid "Prefix"
+msgstr "プレフィックス"
+
+#: src/Admin/AdminPage.php:182
+msgid "Sync Actions"
+msgstr "同期アクション"
+
+#: src/Admin/AdminPage.php:186
+msgid "Dry Run (preview only)"
+msgstr "ドライラン（プレビューのみ）"
+
+#: src/Admin/AdminPage.php:190
+msgid "Sync All Files"
+msgstr "すべてのファイルを同期"
+
+#: src/Admin/AdminPage.php:207
+msgid "Files"
+msgstr "ファイル"
+
+#: src/Admin/AdminPage.php:211
+msgid "No HTML files found in the base directory."
+msgstr "ベースディレクトリにHTMLファイルが見つかりません。"
+
+#: src/Admin/AdminPage.php:221
+msgid "File"
+msgstr "ファイル"
+
+#: src/Admin/AdminPage.php:222
+msgid "Identifier"
+msgstr "識別子"
+
+#: src/Admin/AdminPage.php:223
+msgid "Post Type"
+msgstr "投稿タイプ"
+
+#: src/Admin/AdminPage.php:224
+msgid "Status"
+msgstr "ステータス"
+
+#: src/Admin/AdminPage.php:225
+msgid "Post"
+msgstr "投稿"
+
+#: src/Admin/AdminPage.php:232
+msgid "Actions"
+msgstr "アクション"
+
+#: src/Admin/AdminPage.php:242
+msgid "Path:"
+msgstr "パス："
+
+#: src/Admin/AdminPage.php:248
+msgid "Title:"
+msgstr "タイトル："
+
+#: src/Admin/AdminPage.php:315
+msgid "Synced"
+msgstr "同期済み"
+
+#: src/Admin/AdminPage.php:316
+msgid "Exists"
+msgstr "存在"
+
+#: src/Admin/AdminPage.php:317
+msgid "New"
+msgstr "新規"
+
+#: src/Admin/AdminPage.php:318
+msgid "Error"
+msgstr "エラー"
+
+#: src/Admin/AdminPage.php:319
+msgid "Unknown"
+msgstr "不明"
+
+#: src/Admin/AdminPage.php:346
+msgid "Last synced:"
+msgstr "最終同期："
+
+#: src/Admin/AdminPage.php:357
+msgid "Modified:"
+msgstr "更新日時："
+
+#: src/Admin/AdminPage.php:382
+msgid "Sync"
+msgstr "同期"
+
+#: src/Admin/AdminPage.php:393
+msgid "WP-CLI Usage"
+msgstr "WP-CLI 使用方法"
+
+#: src/Admin/AdminPage.php:394
+msgid "You can also use WP-CLI to sync content:"
+msgstr "WP-CLIを使用してコンテンツを同期することもできます："
+
+#: src/Admin/AjaxHandler.php:52
+#: src/Admin/AjaxHandler.php:135
+msgid "Insufficient permissions"
+msgstr "権限が不足しています"
+
+#: src/Admin/AjaxHandler.php:143
+msgid "File not found"
+msgstr "ファイルが見つかりません"
+
+#: src/Admin/AjaxHandler.php:152
+msgid "Failed to parse file"
+msgstr "ファイルの解析に失敗しました"
+
+#: src/Plugin.php:197
+msgid "Notice: Content Sync Management"
+msgstr "通知：コンテンツ同期管理"
+
+#. translators: %s: Link to Content Sync admin page
+#: src/Plugin.php:201
+msgid "This post is managed by the %s."
+msgstr "この投稿は%sで管理されています。"
+
+#: src/Plugin.php:205
+msgid "PONOS Content Sync plugin"
+msgstr "PONOS Content Syncプラグイン"
+
+#: src/Plugin.php:209
+msgid "Any changes made here may be overwritten during the next sync. Please edit the source HTML file instead."
+msgstr "ここで行った変更は次回の同期時に上書きされる可能性があります。元のHTMLファイルを編集してください。"

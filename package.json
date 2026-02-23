@@ -21,12 +21,15 @@
     "dist:frontend": "tsc && vite build --mode production",
     "build:frontend": "vite build --mode development",
     "dist:wp-theme": "node ./scripts/dist-wp-theme.mjs",
-    "setup:wp-theme": "node ./scripts/setup-wp.mjs && npm run cp:wp-core",
-    "composer:install": "node ./scripts/composer-install.mjs",
-    "cp:wp-core": "docker cp `docker-compose ps -q wordpress`:/var/www/html/wp-includes/ ./.wp/wp-includes & docker cp `docker-compose ps -q wordpress`:/var/www/html/wp-admin/ ./.wp/wp-admin",
+    "setup:wp": "node ./scripts/setup-wp.mjs && npm run setup:cp-core",
+    "setup:cp-core": "docker compose cp wordpress:/var/www/html/wp-includes/ ./.wp/wp-includes && docker compose cp wordpress:/var/www/html/wp-admin/ ./.wp/wp-admin",
+    "theme:composer-install": "node ./scripts/composer-install.mjs",
     "image-optimize": "node ./scripts/image-optimize.mjs",
     "lint": "eslint \"src/**/*\"",
-    "format": "prettier src --write"
+    "format": "prettier src --write",
+    "pcs:install": "docker compose exec -w /var/www/html/wp-content/plugins/post-content-sync wordpress composer install",
+    "pcs:sync": "docker-compose exec -w /var/www/html/ wordpress wp content-sync sync --allow-root"
+
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -23,5 +23,6 @@ themes/index.php
 # !plugin-name
 !setup-theme
 !custom-editor
+!post-content-sync
 # default themes
 themes/twenty*

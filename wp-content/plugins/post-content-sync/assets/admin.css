@@ -1,0 +1,183 @@
+/* Post Content Sync - Admin Styles */
+
+.post-content-sync-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.post-content-sync-config,
+.post-content-sync-actions {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccd0d4;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+}
+
+.post-content-sync-actions h2 {
+  margin-top: 0;
+}
+
+.sync-options {
+  margin-bottom: 15px;
+}
+
+.sync-options label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sync-options input[type='checkbox'] {
+  margin-right: 5px;
+}
+
+.sync-options select {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin-top: 5px;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-flex;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-badge.status-synced {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-badge.status-exists {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status-badge.status-new {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.status-badge.status-error {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.status-badge.status-unknown {
+  background: #e2e3e5;
+  color: #383d41;
+}
+
+/* Status indicator (red dot for modified synced items) */
+.status-indicator {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.status-indicator--modified {
+  background-color: #dc3545;
+}
+
+/* Synced and unchanged row */
+tr.synced-unchanged[class] {
+  background-color: color-mix(in srgb, #fff 100%, #1d2327 8%);
+}
+tr.synced-unchanged[class]:nth-child(even) {
+  background-color: color-mix(in srgb, #f6f7f7 100%, #1d2327 8%);
+}
+
+/* Sortable column headers */
+.wp-list-table thead th a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 8px 0;
+}
+
+.wp-list-table thead th a:hover {
+  color: #2271b1;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: #0073aa;
+  transition: width 0.3s ease;
+}
+
+.sync-status {
+  margin: 10px 0 0;
+  font-size: 13px;
+}
+
+#sync-result .sync-resultーpanel {
+  padding-bottom: 2em;
+}
+/* Result table */
+#sync-result .result-table {
+  margin-top: 15px;
+}
+
+#sync-result .result-table th {
+  text-align: left;
+  padding: 8px;
+}
+
+#sync-result .result-table td {
+  padding: 8px;
+}
+
+/* Footer */
+.post-content-sync-footer {
+  margin-top: 30px;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ccd0d4;
+}
+
+.post-content-sync-footer pre {
+  background: #23282d;
+  color: #f1f1f1;
+  padding: 15px;
+  border-radius: 3px;
+  overflow-x: auto;
+}
+
+.post-content-sync-footer code {
+  color: #f1f1f1;
+}
+
+/* Button states */
+#sync-all-files:disabled,
+.sync-single-file:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive */
+@media screen and (max-width: 782px) {
+  .post-content-sync-header {
+    grid-template-columns: 1fr;
+  }
+}
