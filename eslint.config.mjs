@@ -1,9 +1,11 @@
 import globals from 'globals';
+import { defineConfig } from 'eslint/config';
+
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
-export default [
+export default defineConfig([
   {
     files: ['**/*.ts', '**/*.js', '**.*.mjs'],
   },
@@ -19,4 +21,4 @@ export default [
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
     },
   },
-];
+]);

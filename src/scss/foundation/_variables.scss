@@ -2,10 +2,11 @@
 /* -----------------------
 Font
 ----------------------- */
-$default_font: 'Hiragino Sans', 'ヒラギノ角ゴシック', 'ヒラギノ角ゴ ProN W3',
-  'Hiragino Kaku Gothic ProN', '游ゴシック', YuGothic, 'メイリオ', Meiryo, Roboto, sans-serif;
-$featured_font: '游明朝体', 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'HGS明朝E', 'メイリオ',
-  'Meiryo', serif;
+$default_font:
+  'Hiragino Sans', 'ヒラギノ角ゴシック', 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN',
+  '游ゴシック', YuGothic, 'メイリオ', Meiryo, Roboto, sans-serif;
+$featured_font:
+  '游明朝体', 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'HGS明朝E', 'メイリオ', 'Meiryo', serif;
 
 /* -----------------------
 Breackpoint
