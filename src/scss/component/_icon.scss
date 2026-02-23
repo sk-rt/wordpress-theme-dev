@@ -60,7 +60,7 @@ Icon
       margin-top: -0.5px;
     }
   }
-  @media #{map.get(variables.$max, md)} {
+  @media (width < #{map.get(variables.$breakpoints, md)}) {
     &::before,
     &::after {
       border-width: 2px;
@@ -95,7 +95,7 @@ Icon
   &::after {
     transform: translateX(15px);
   }
-  @media #{map.get(variables.$max, md)} {
+  @media (width < #{map.get(variables.$breakpoints, md)}) {
     i,
     &::before,
     &::after {
@@ -128,7 +128,7 @@ Icon
     border-left: 2px solid;
     width: 8px;
     height: 8px;
-    @media #{map.get(variables.$max, md)} {
+    @media (width < #{map.get(variables.$breakpoints, md)}) {
       border-width: 3px;
       width: 6px;
       height: 6px;

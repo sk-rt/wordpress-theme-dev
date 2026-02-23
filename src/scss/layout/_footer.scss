@@ -13,9 +13,9 @@
   position: relative;
   padding-top: 4em;
   padding-bottom: 4em;
-  background-color: var(--color-text);
-  color: var(--color-background);
-  @media #{map.get(variables.$max, md)} {
+  background-color: var(--g-color-text);
+  color: var(--g-color-background);
+  @media (width < #{map.get(variables.$breakpoints, md)}) {
     padding: 40px 5%;
   }
 }
