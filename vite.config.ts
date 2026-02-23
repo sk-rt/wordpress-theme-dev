@@ -5,6 +5,9 @@ import createSvgSpritePlugin from 'vite-plugin-svg-sprite';
 import autoprefixer from 'autoprefixer';
 import path from 'node:path';
 import { rmSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
