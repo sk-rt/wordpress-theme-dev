@@ -24,6 +24,16 @@ function hideBlockTypes() {
   window.addEventListener('load', () => {
     // 非表示だと画像ブロックから変換できてしまうので、カバー画像は完全削除
     window.wp.blocks.unregisterBlockType('core/cover');
+    // ブロックの supports.align を空にすることで、配置オプションを非表示にする
+    const allBlocks = window.wp.blocks.getBlockTypes();
+    allBlocks.forEach((block) => {
+      const targetBlocks = ['core/image', 'core/video', 'core/embed', 'core/separator'];
+      if (targetBlocks.includes(block.name)) {
+        if (block.supports?.align) {
+          block.supports.align = [];
+        }
+      }
+    });
   });
 
   window.wp.hooks.addFilter(
@@ -34,15 +44,21 @@ function hideBlockTypes() {
         return settings;
       }
 
-      if (name === 'core/embed') {
-        settings.variations = settings.variations.filter((variation) => {
-          return ALLOWED_EMBEDS.includes(variation.name);
-        });
-      }
       if (ALLOWED_BLOCKS.includes(name)) {
         if (settings.styles) {
           // ブロックスタイルは全て削除
           settings.styles = [];
+        }
+        if (name === 'core/embed') {
+          settings.variations = settings.variations.filter((variation) => {
+            return ALLOWED_EMBEDS.includes(variation.name);
+          });
+        }
+        if (name === 'core/paragraph' || name === 'core/heading') {
+          // 伸縮するブロックは削除
+          settings.variations = settings.variations.filter((variation) => {
+            return variation.isDefault;
+          });
         }
 
         return settings;
@@ -80,6 +96,6 @@ function removeFormatTypes() {
  */
 function removePanels() {
   window.wp.domReady(() => {
-    window.wp.data.dispatch('core/edit-post').removeEditorPanel('featured-image'); // Featured Image
+    window.wp.data.dispatch('core/editor').removeEditorPanel('featured-image'); // Featured Image
   });
 }

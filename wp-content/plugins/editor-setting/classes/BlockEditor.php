@@ -57,48 +57,74 @@ class BlockEditor
         $editor_settings['enableOpenverseMediaCategory'] = false;
         return $editor_settings;
     }
+    /**
+     * テーマJSONの上書き
+     * @see https://make.wordpress.org/core/2024/06/19/theme-json-version-3/
+     */
     public function themeJson(WP_Theme_JSON_Data $theme_json)
     {
         $data = [
-            'version'  => 2,
+            'version'  => 3,
             'settings' => [
+                'border' => [
+                    'radius' => false,
+                    'color' => false,
+                    'style' => false,
+                    'width' => false
+                ],
                 'color' => [
                     'background' => false,
                     'custom' => false,
                     'customDuotone' => false,
                     'customGradient' => false,
+                    'defaultGradients' => false,
+                    'defaultPalette' => false,
                     'duotone' => null,
-                    'gradients' => [],
+                    'gradients' => null,
                     'link' => false,
                     'palette' => [],
                     'text' => false
                 ],
                 'spacing' => [
-                    'customMargin' => false,
-                    'customPadding' => false,
+                    'blockGap' => null,
+                    'defaultSpacingSizes' => false,
+                    'margin' => false,
+                    'padding' => false,
+                    'spacingSizes' => [],
                     'units' => []
                 ],
                 'layout' => [
                     'contentSize' => '740px',
-                    'wideSize' => false
+                    'wideSize' => null
                 ],
                 'typography' => [
+                    'defaultFontSizes' => false,
                     'customFontSize' => false,
-                    'customFontStyle' => false,
-                    'customFontWeight' => false,
-                    'customLineHeight' => false,
-                    'customTextDecorations' => false,
-                    'customTextTransforms' => false,
-                    'dropCap' => false,
-                    'fontFamilies' => [],
-                    'fontSizes' => [],
                     'fontStyle' => false,
                     'fontWeight' => false,
+                    'lineHeight' => false,
                     'letterSpacing' => false,
                     'textDecoration' => false,
-                    'textTransform' => false
+                    'textTransform' => false,
+                    'dropCap' => false,
+                    'fontFamilies' => [],
+                    'fontSizes' => []
+                ],
+                'blocks' => [
+                    'core/button' => [
+                        'border' => [
+                            'radius' => false,
+                            'width' => false
+                        ]
+                    ],
+                    'core/image' => [
+                        'color' => [
+                            'duotone' => null
+                        ]
+                    ],
                 ]
             ],
+
         ];
 
         return $theme_json->update_with($data);
