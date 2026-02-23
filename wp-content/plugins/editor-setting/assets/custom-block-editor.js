@@ -18,6 +18,7 @@ if (window.wp) {
 }
 /**
  * 不要なブロック/ブロックスタイルを削除する
+ * @see https://ja.wordpress.org/team/handbook/block-editor/how-to-guides/curating-the-editor-experience/disable-editor-functionality/
  */
 function hideBlockTypes() {
   // NOTE: DOMContentLoadedでは動作しない
@@ -45,20 +46,27 @@ function hideBlockTypes() {
       }
 
       if (ALLOWED_BLOCKS.includes(name)) {
+        // ブロックスタイルは全て削除
         if (settings.styles) {
-          // ブロックスタイルは全て削除
           settings.styles = [];
         }
+        // 埋め込みブロックのバリエーションを制限
         if (name === 'core/embed') {
           settings.variations = settings.variations.filter((variation) => {
             return ALLOWED_EMBEDS.includes(variation.name);
           });
         }
+        // 段落・見出しはdefautl以外削除（伸縮するブロックは削除）
         if (name === 'core/paragraph' || name === 'core/heading') {
-          // 伸縮するブロックは削除
           settings.variations = settings.variations.filter((variation) => {
             return variation.isDefault;
           });
+        }
+        // 見出しのレベルを制限
+        if (name === 'core/heading' && settings.attributes) {
+          settings.attributes.levelOptions = {
+            default: [2, 3, 4],
+          };
         }
 
         return settings;

@@ -55,6 +55,8 @@ class BlockEditor
         $editor_settings['imageEditing'] = false;
         // Openverse を無効化
         $editor_settings['enableOpenverseMediaCategory'] = false;
+        // コードエディターを無効化
+        $settings[ 'codeEditingEnabled' ] = false;
         return $editor_settings;
     }
     /**
