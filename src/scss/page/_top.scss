@@ -15,5 +15,5 @@
          XXX
 
 *****************************************/
-@media #{map.get(variables.$max, sm)} {
+@media (width < #{map.get(variables.$breakpoints, sm)}) {
 }

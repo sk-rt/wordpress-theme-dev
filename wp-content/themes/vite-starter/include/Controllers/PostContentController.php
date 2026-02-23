@@ -38,17 +38,19 @@ class PostContentController
 
         /**
          * WPの `get_template_part()` ショートコード
-         * [template temp="temp-path"]
+         * [templates path="temp-path"]
          */
-        add_shortcode('template', function ($atts) {
-            $atts = shortcode_atts(
+        add_shortcode('templates', function ($atts) {
+            $path = shortcode_atts(
                 [
-                    'temp' => '',
+                    'path' => '',
                 ],
                 $atts
-            );
-            $temp_path = 'template-parts/' . esc_attr($atts['temp']);
-            return TemplateTags::getTemplatePartString($temp_path);
+            )['path'];
+            $temp_path = 'template-parts/' . esc_attr($path);
+            $args = $atts;
+            unset($args['path']);
+            return TemplateTags::getTemplatePartString($temp_path, $args);
         });
     }
 }

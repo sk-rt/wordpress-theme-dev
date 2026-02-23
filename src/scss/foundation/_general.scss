@@ -19,21 +19,31 @@
 
 *****************************************/
 :root {
-  --color-text: #000;
-  --color-background: #fff;
-  --color-link: #0000ff;
+  // Colors
+  --g-color-text: #000;
+  --g-color-background: #fff;
+  --g-color-link: #0000ff;
 
-  --font-main-weight-medium: 400;
-  --font-main-weight-bold: 600;
+  // Fonts
+  --g-font-default: 'Hiragino Sans', sans-serif;
+  --g-font-display: '游明朝体', 'Yu Mincho', YuMincho, serif;
 
-  --content-size--lg: 1280px;
-  --content-size--md: 960px;
-  --content-size--sm: 720px;
-  --page-gutter--lg: 7vw;
-  --page-gutter--sm: 5vw;
-  @media #{map.get(variables.$max, md)} {
-    --page-gutter--lg: 5vw;
-    --page-gutter--sm: 12px;
+  --g-font-size--root: 16px;
+
+  --g-font-weight--medium: 400;
+  --g-font-weight--bold: 600;
+
+  // layout
+  --g-content-size--lg: 1280px;
+  --g-content-size--md: 960px;
+  --g-content-size--sm: 720px;
+  --g-page-inset--lg: 7vw;
+  --g-page-inset--sm: 5vw;
+
+  @media (width < #{map.get(variables.$breakpoints, md)}) {
+    --g-font-size--root: 15px;
+    --g-page-inset--lg: 5vw;
+    --g-page-inset--sm: 12px;
   }
 }
 /****************************************
@@ -42,19 +52,16 @@
 
 *****************************************/
 html {
-  font-size: 16px;
-  @media #{map.get(variables.$max, md)} {
-    font-size: 15px;
-  }
+  font-size: var(--g-font-size--root);
 }
 
 body {
   font-size: 1em;
   line-height: 1.7;
-  font-weight: var(--font-main-weight-medium);
-  font-family: variables.$default_font;
-  color: var(--color-text);
-  background-color: var(--color-background);
+  font-weight: var(--g-font-weight--medium);
+  font-family: var(--g-font-default);
+  color: var(--g-color-text);
+  background-color: var(--g-color-background);
   -webkit-text-size-adjust: 100%;
   text-justify: inter-ideograph;
   -webkit-font-smoothing: antialiased;
@@ -77,9 +84,10 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  line-height: 1.5;
-  font-weight: var(--font-main-weight-bold);
+h6,
+th,
+dt {
+  font-weight: var(--g-font-weight--bold);
 }
 
 a,
@@ -87,13 +95,10 @@ button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  padding: 0;
-  margin: 0;
   -webkit-appearance: none;
   appearance: none;
   font-family: inherit;
-  box-sizing: content-box;
-  font-size: 1rem;
+  font-size: inherit;
   color: inherit;
 }
 a {
@@ -103,12 +108,19 @@ a {
 
 /****************************************
 
-          Wp admin
+          WP Admin Bar
 
 *****************************************/
-body {
-  --wp-admin-bar-height: 0px;
-  &.admin-bar {
-    --wp-admin-bar-height: var(--wp-admin--admin-bar--height, 32px);
+
+:root {
+  --g-adminbar-height: 0px;
+  &:has(.admin-bar) {
+    --g-adminbar-height: 32px;
+    @media screen and (max-width: 782px) {
+      --g-adminbar-height: 46px;
+    }
+    @media screen and (max-width: 600px) {
+      --g-adminbar-height: 0px;
+    }
   }
 }

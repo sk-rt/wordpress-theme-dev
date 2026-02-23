@@ -10,7 +10,7 @@ $heading_tag = is_front_page() ? 'h1' : 'p';
 
 <body <?php body_class(); ?>>
    <header class="l-header">
-      <<?= $heading_tag ?> class="l-header__name">
+      <<?= $heading_tag ?> class="l-header__name u-font-display ">
          <a href="<?php echo home_url(); ?>">
             <?php bloginfo('name') ?>
          </a>

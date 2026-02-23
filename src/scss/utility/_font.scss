@@ -13,20 +13,13 @@ Font Utils
           Font
 
 *****************************************/
-
-.u-font-featured {
-  font-family: variables.$featured_font;
-}
-
 /* -----------------------------
-    Font large / small
+    Font Family
 */
-.u-larger {
-  font-size: 1.15em;
+.u-font-display {
+  font-family: var(--g-font-display);
 }
-.u-smaller {
-  font-size: 0.85em;
-}
+
 /* -----------------------------
     Align
 */

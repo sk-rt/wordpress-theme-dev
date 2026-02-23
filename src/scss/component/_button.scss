@@ -27,7 +27,7 @@ Button
   min-width: 250px;
   box-sizing: border-box;
   text-align: center;
-  @media #{map.get(variables.$max, md)} {
+  @media (width < #{map.get(variables.$breakpoints, md)}) {
     padding: 0.7em 1em;
     font-size: 1rem;
     min-width: 150px;
@@ -39,7 +39,7 @@ Button
     pointer-events: none;
     opacity: 0.4;
   }
-  @media #{map.get(variables.$min, md)} {
+  @media (width >= #{map.get(variables.$breakpoints, md)}) {
     transition: opacity 0.3s;
     &:hover {
       opacity: 0.7;

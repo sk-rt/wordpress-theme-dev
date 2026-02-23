@@ -21,15 +21,15 @@
 
 .u-container--lg {
   @extend %u-container;
-  max-width: var(--content-size--lg);
+  max-width: var(--g-content-size--lg);
 }
 .u-container--md {
   @extend %u-container;
-  max-width: var(--content-size--md);
+  max-width: var(--g-content-size--md);
 }
 .u-container--sm {
   @extend %u-container;
-  max-width: var(--content-size--sm);
+  max-width: var(--g-content-size--sm);
 }
 /****************************************
 
@@ -37,12 +37,12 @@
 
 *****************************************/
 .u-gutter--lg {
-  padding-left: var(--page-gutter--lg);
-  padding-right: var(--page-gutter--lg);
+  padding-left: var(--g-page-inset--lg);
+  padding-right: var(--g-page-inset--lg);
 }
 .u-gutter--sm {
-  padding-left: var(--page-gutter--sm);
-  padding-right: var(--page-gutter--sm);
+  padding-left: var(--g-page-inset--sm);
+  padding-right: var(--g-page-inset--sm);
 }
 
 /****************************************
@@ -53,18 +53,18 @@
           u-only--max-sm
 
 *****************************************/
-@each $key in map.keys(variables.$min) {
+@each $key in map.keys(variables.$breakpoints) {
   .u-only--min-#{$key} {
     display: none;
-    @media #{ map.get(variables.$min, #{$key})} {
+    @media (width >= #{map.get(variables.$breakpoints, $key)}) {
       display: block;
     }
   }
 }
-@each $key in map.keys(variables.$max) {
+@each $key in map.keys(variables.$breakpoints) {
   .u-only--max-#{$key} {
     display: none;
-    @media #{ map.get(variables.$max, #{$key})} {
+    @media (width < #{map.get(variables.$breakpoints, $key)}) {
       display: block;
     }
   }
@@ -77,8 +77,11 @@
 .u-mb--none {
   margin-bottom: 0;
 }
+.u-mt--none {
+  margin-top: 0;
+}
 
-@for $var from 1 to 10 {
+@for $var from 1 to 6 {
   .u-mb--#{$var}en {
     margin-bottom: #{$var * 0.5}em;
   }
@@ -86,7 +89,7 @@
     margin-top: #{$var * 0.5}em;
   }
 }
-@for $var from 1 to 10 {
+@for $var from 1 to 6 {
   .u-mb--#{$var}em {
     margin-bottom: #{$var}em;
   }
@@ -106,7 +109,7 @@
   padding-top: 0;
 }
 
-@for $var from 1 to 10 {
+@for $var from 1 to 6 {
   .u-pb--#{$var}em {
     padding-bottom: #{$var}em;
   }
